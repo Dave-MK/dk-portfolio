@@ -21,7 +21,7 @@ type ProjectCardProps = {
 export function ProjectCard({ project }: ProjectCardProps) {
     return (
         <motion.article
-            whileHover={{ y: -6 }}
+            whileHover={{ scale: 1.10, zIndex: 10 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
         >
             <Card className="flex h-full flex-col border-border/60 bg-card/80 backdrop-blur">
@@ -51,7 +51,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                     </div>
                 </CardContent>
                 
-                <CardFooter className="flex-gap-3">
+                <CardFooter className="flex-gap-3 justify-around">
                     <Button asChild size="sm">
                         <a href={project.homepageUrl} target="_blank" rel="noreferrer">
                             <ExternalLink className="mr-2 size-4" />

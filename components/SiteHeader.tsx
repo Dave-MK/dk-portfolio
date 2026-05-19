@@ -9,7 +9,7 @@ export function SiteHeader() {
             <div className="mx-auto flex max-w-6xl items-center px-1.5 justify-between py-4">
                 <Link href="/" className="flex font-bold tracking-tight text-xl uppercase">
                     <Braces className="mr-2 size-7" />
-                    David Kilgallon
+                    DK
                 </Link>
                 <nav className="flex items-center gap-3">
                     <Link href="#projects" className="text-sm text-muted-foreground">

@@ -38,7 +38,7 @@ export function CyclingSkills() {
 
     return (
         <div className="mt-4 flex min-h-8 items-center text-xl font-medium text-muted-foreground sm:text-2xl">
-            <span className="mr-2">I have experience with</span>
+            <span className="mr-2">I love</span>
             <AnimatePresence mode="wait">
                 <motion.span
                     key={currentSkill}
