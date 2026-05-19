@@ -5,8 +5,8 @@ import { Braces } from 'lucide-react';
 
 export function SiteHeader() {
     return (
-        <header className="bg-transparent">
-            <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        <header className="relative z-20 bg-transparent">
+            <div className="mx-auto flex max-w-6xl items-center px-1.5 justify-between py-4">
                 <Link href="/" className="flex font-bold tracking-tight text-xl uppercase">
                     <Braces className="mr-2 size-7" />
                     David Kilgallon

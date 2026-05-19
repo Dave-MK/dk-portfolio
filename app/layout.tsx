@@ -29,7 +29,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geist.variable} ${ibmPlexSans.variable} font-secondary`}>
+      <body className={`${geist.variable} ${ibmPlexSans.variable} font-secondary bg-transparent`}>
+        <div className="fixed inset-0 -z-10 bg-[url('/images/hero-bg.png')] bg-cover bg-center" aria-hidden />
         <SiteHeader />
         {children}
       </body>

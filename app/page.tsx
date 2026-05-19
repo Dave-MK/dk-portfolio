@@ -13,22 +13,24 @@ export default async function HomePage() {
     }
 
     return (
-        <main className="min-h-screen bg-background px-6 py-16 text-foreground">
+        <main className="min-h-screen px-6 py-16 text-foreground relative z-10">
+            <section className="mx-auto max-w-4xl h-screen">
+                    <div className="mb-12 max-w-3xl">
+                        <p className="mb-3 text-sm font-medium uppercase tracking-widest text-muted-foreground">
+                            Portfolio
+                        </p>
+                        <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
+                            David Kilgallon
+                        </h1>
+                        <CyclingSkills />
+                        <p className="mt-6 text-lg leading-8 text-muted-foreground">
+                            Aspiring software developer with a creative background in digital
+                            media, building web projects that combine clean code, visual design,
+                            and practical problem-solving.
+                        </p>
+                    </div>
+            </section>
             <section className="mx-auto max-w-6xl">
-                <div className="mb-12 max-w-3xl">
-                    <p className="mb-3 text-sm font-medium uppercase tracking-widest text-muted-foreground">
-                        Portfolio
-                    </p>
-                    <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
-                        David Kilgallon
-                    </h1>
-                    <CyclingSkills />
-                    <p className="mt-6 text-lg leading-8 text-muted-foreground">
-                        Aspiring software developer with a creative background in digital
-                        media, building web projects that combine clean code, visual design,
-                        and practical problem-solving.
-                    </p>
-                </div>
                 <section id="projects">
                     <div className="mb-8">
                         <h2 className="text-2xl font-bold tracking-tight">Projects</h2>
