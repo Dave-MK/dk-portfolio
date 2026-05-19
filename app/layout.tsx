@@ -1,10 +1,25 @@
 import type { Metadata } from "next";
+import { Geist, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
 
+const geist = Geist({
+  subsets: ["latin"],
+  variable: "--font-primary",
+  display: "swap",
+});
+
+const ibmPlexSans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-secondary",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "David Kilgallon | Portfolio",
-  description: "Portfolio of David Kilgallon, featuring web development, creative technology, 3D, motion design, and digital media projects.",
+  description:
+    "Portfolio of David Kilgallon, featuring web development, creative technology, 3D, motion design, and digital media projects.",
 };
 
 export default function RootLayout({
@@ -14,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={`${geist.variable} ${ibmPlexSans.variable} font-secondary`}>
         <SiteHeader />
         {children}
       </body>
