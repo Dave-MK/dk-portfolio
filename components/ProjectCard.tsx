@@ -28,7 +28,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 <CardHeader>
                     <div className="flex items-start justify-between gap-4">
                         <CardTitle className="text-xl capitalize">
-                            {project.name.replace("-", " ")}
+                            {project.name.replaceAll("-", " ")}
                         </CardTitle>
 
                         {project.language && (
