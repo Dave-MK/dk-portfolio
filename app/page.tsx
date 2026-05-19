@@ -2,18 +2,27 @@ import { CyclingSkills } from "@/components/CyclingSkills";
 import { ProjectsGrid } from "@/components/ProjectsGrid";
 import { getGithubPagesProject } from "@/lib/github";
 import { GitHubProject } from "@/lib/types";
+import Image from "next/image";
 
 export default async function HomePage() {
-    let projects: GitHubProject[] = [];
+  let projects: GitHubProject[] = [];
 
-    try {
-        projects = await getGithubPagesProject();
-    } catch (error) {
-        console.error(error);
-    }
+  try {
+    projects = await getGithubPagesProject();
+  } catch (error) {
+    console.error(error);
+  }
 
-    return (
-      <main className="min-h-screen text-foreground relative z-10">
+  return (
+    <main className="min-h-screen text-foreground relative z-10">
+      <section className="flex max-w-6xl justify-around items-center h-screen mx-auto px-4">
+        <Image
+          className="rounded-full w-70 h-70 z-10 -mt-40 lg:inline-block hidden"
+          src="/images/profile-pic.jpg"
+          alt="Profile Picture"
+          width="0"
+          height="0"
+        />
         <section className="mx-auto max-w-4xl h-screen flex flex-col items-start justify-center px-4">
           <div className="mb-12 -mt-20 max-w-3xl flex flex-col items-start gap-6">
             <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
@@ -26,68 +35,146 @@ export default async function HomePage() {
               <span className="text-foreground"> David Kilgallon</span>
             </h1>
             <CyclingSkills />
-            <p className="mt-6 text-lg leading-8 text-muted-foreground">
+            <p className="mt-6 text-lg leading-8 text-foreground">
               Aspiring software developer with a creative background in digital
               media, building web projects that combine clean code, visual
               design, and practical problem-solving.
             </p>
             <div className="flex items-center justify-center gap-3">
-                <h2 className="text-foreground text-lg sm:text-xl">
-                Let&apos;s connect {'>'}
-                </h2>
-                <img className="inline w-12 h-12 ml-4" src="/images/linkedin-app-icon.svg" alt="LinkedIn Icon" />
-                <img className="inline w-12 h-12" src="/images/github-white-icon.svg" alt="GitHub Icon" />
-                <img className="inline w-12 h-12" src="/images/gmail-icon.svg" alt="Email Icon" />
-                <img className="inline w-12 h-12 ml-4" src="/images/youtube-color-icon.svg" alt="YouTube Icon" />
-            </div>
-          </div>
-        </section>
-        <section className="w-full pt-8 bg-background sm:px-6 xs:px-4">
-          <section id="projects" className="mx-auto max-w-6xl">
-            <div className="flex flex-col items-center mb-8">
-              <h2 className="text-4xl font-bold tracking-tight text-center">
-                Projects
+              <h2 className="text-foreground text-lg sm:text-xl">
+                Let&apos;s connect...
               </h2>
-              <p className="mt-3 max-w-2xl text-muted-foreground text-center">
-                Live projects pulled from GitHub Pages and displayed
-                automatically when a deployed version is available.
-              </p>
-            </div>
-            <ProjectsGrid projects={projects} />
-          </section>
-          <section
-            id="contact"
-            className="flex flex-col items-center mt-20 border-t py-10"
-          >
-            <h2 className="text-2xl font-bold tracking-tight">Contact</h2>
-            <p className="mt-4 max-w-2xl text-muted-foreground text-center">
-              Open to junior developer roles, creative technology projects, and
-              digital work involving web, media, design, or interactive content.
-            </p>
-            <div className="mt-6 flex flex-wrap gap-3 text-xl">
+              <a
+              href="https://www.linkedin.com/in/david-kilgallon/"
+              className="font-medium underline underline-offset-4"
+            >
+              <Image
+                className="inline w-12 h-12 ml-4"
+                src="/images/linkedin-app-icon.svg"
+                alt="LinkedIn Icon"
+                width="0"
+                height="0"
+              />
+            </a>
+              <a
+                href="https://github.com/ntice-digital"
+                className="font-medium underline underline-offset-4"
+              >
+                <Image
+                  className="inline w-12 h-12"
+                  src="/images/github-white-icon.svg"
+                  alt="GitHub Icon"
+                  width="0"
+                  height="0"
+                />
+              </a>
               <a
                 href="mailto:ntice.digital@gmail.com"
                 className="font-medium underline underline-offset-4"
               >
-                <img className="w-10 h-10" src="/images/email-envelope-white-icon.svg" alt="Email Icon" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/david-kilgallon/"
-                className="font-medium underline underline-offset-4"
-              >
-                <img className="w-10 h-10" src="/images/linkedin-app-white-icon.svg" alt="LinkedIn Icon" />
+                <Image
+                  className="inline w-12 h-12"
+                  src="/images/gmail-icon.svg"
+                  alt="Email Icon"
+                  width="0"
+                  height="0"
+                />
               </a>
               <a
                 href="https://www.youtube.com/@ntice.digital"
                 target="_blank"
                 rel="noreferrer"
-                className="text-md font-medium underline underline-offset-4"
+                className="font-medium underline underline-offset-4"
               >
-                <img className="w-10 h-10"src="/images/youtube-app-white-icon.svg" alt="YouTube Icon" />
+                <Image
+                  className="inline w-12 h-12 ml-4"
+                  src="/images/youtube-color-icon.svg"
+                  alt="YouTube Icon"
+                  width="0"
+                  height="0"
+                />
               </a>
             </div>
-          </section>
+          </div>
         </section>
-      </main>
-    );
+        <div className="inset-1/4 w-full h-50 bg-cyan-400/75 z-100 animate-pulse" />
+      </section>
+      <section className="z-5 w-full pt-8 bg-background sm:px-6 xs:px-4">
+        <section id="projects" className="mx-auto max-w-6xl">
+          <div className="flex flex-col items-center mb-8">
+            <h2 className="text-4xl font-bold tracking-tight text-center mt-4">
+              Projects
+            </h2>
+            <p className="mt-3 max-w-2xl text-muted-foreground text-center">
+              My live projects published from GitHub are displayed below automatically
+              when a deployed version is available.
+            </p>
+          </div>
+          <ProjectsGrid projects={projects} />
+        </section>
+        <section
+          id="contact"
+          className="flex flex-col items-center mt-20 border-t py-10"
+        >
+          <h2 className="text-2xl font-bold tracking-tight">Contact</h2>
+          <p className="mt-4 max-w-2xl text-muted-foreground text-center">
+            Open to junior developer roles, creative technology projects, and
+            digital work involving web, media, design, or interactive content.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3 text-xl items-center justify-center">
+            <a
+              href="mailto:ntice.digital@gmail.com"
+              className="font-medium underline underline-offset-4"
+            >
+              <Image
+                className="inline w-12 h-12"
+                src="/images/github-white-icon.svg"
+                alt="GitHub Icon"
+                width="0"
+                height="0"
+              />
+            </a>
+            <a
+              href="mailto:ntice.digital@gmail.com"
+              className="font-medium underline underline-offset-4"
+            >
+              <Image
+                className="w-10 h-10"
+                src="/images/email-envelope-white-icon.svg"
+                alt="Email Icon"
+                width="0"
+                height="0"
+              />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/david-kilgallon/"
+              className="font-medium underline underline-offset-4"
+            >
+              <Image
+                className="w-10 h-10"
+                src="/images/linkedin-app-white-icon.svg"
+                alt="LinkedIn Icon"
+                width="0"
+                height="0"
+              />
+            </a>
+            <a
+              href="https://www.youtube.com/@ntice.digital"
+              target="_blank"
+              rel="noreferrer"
+              className="text-md font-medium underline underline-offset-4"
+            >
+              <Image
+                className="w-10 h-10"
+                src="/images/youtube-app-white-icon.svg"
+                alt="YouTube Icon"
+                width="0"
+                height="0"
+              />
+            </a>
+          </div>
+        </section>
+      </section>
+    </main>
+  );
 }
