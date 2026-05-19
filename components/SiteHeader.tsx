@@ -1,13 +1,15 @@
 import Link from 'next/link';
 import { GitHubIcon } from '@/components/icons/GitHubIcon';
 import { Button } from '@/components/ui/button';
+import { Braces } from 'lucide-react';
 
 export function SiteHeader() {
     return (
-        <header className="border-b">
+        <header className="bg-transparent">
             <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-                <Link href="/" className="font-bold tracking-tight">
-                David Kilgallon
+                <Link href="/" className="flex font-bold tracking-tight text-xl uppercase">
+                    <Braces className="mr-2 size-7" />
+                    David Kilgallon
                 </Link>
                 <nav className="flex items-center gap-3">
                     <Link href="#projects" className="text-sm text-muted-foreground">

@@ -46,7 +46,7 @@ export function CyclingSkills() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -8 }}
                     transition={{ duration: 0.25 }}
-                    className="text-foreground"
+                    className="text-foreground text-2xl font-extrabold"
                 >
                     {currentSkill}
                 </motion.span>
