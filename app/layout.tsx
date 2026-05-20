@@ -1,18 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, IBM_Plex_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
 
-const geist = Geist({
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-primary",
-  display: "swap",
-});
-
-const ibmPlexSans = IBM_Plex_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-secondary",
   display: "swap",
 });
 
@@ -29,8 +22,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geist.variable} ${ibmPlexSans.variable} font-secondary bg-transparent`}>
-        <div className="fixed inset-0 -z-10 bg-[url('/images/hero-bg.png')] bg-cover bg-center" aria-hidden />
+      <body className={`${inter.variable} bg-transparent`}>
+        <div className="fixed inset-0 -z-10 bg-[url('/images/hero-bg.webp')] bg-cover bg-center" aria-hidden />
         <div className="fixed inset-0 -z-10 bg-linear-to-b from-black/80 via-black/50 to-black/20" />
         <SiteHeader />
         {children}

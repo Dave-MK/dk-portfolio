@@ -36,7 +36,7 @@ export function CyclingSkills() {
     const currentSkill = skills[currentSkillIndex];
 
     return (
-        <div className="mt-4 flex min-h-8 items-center text-2xl font-light text-muted-foreground sm:text-4xl">
+        <div className="mt-4 flex min-h-8 items-center text-2xl font-light sm:text-4xl">
             <span className="mr-2 text-2xl sm:text-3xl">I have a <strong className="font-extrabold text-primary">passion</strong> for...</span>
             <AnimatePresence mode="wait">
                 <motion.span

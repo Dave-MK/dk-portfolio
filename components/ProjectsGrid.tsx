@@ -9,7 +9,7 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
     if (projects.length === 0) {
         return (
         <div className="rounded-2xl border border-dashed p-8 text-center">
-            <p className="text-muted-foreground">
+            <p>
                 No GitHub Pages projects found yet.
             </p>
         </div>

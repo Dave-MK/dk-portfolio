@@ -14,7 +14,7 @@ export default async function HomePage() {
   }
 
   return (
-    <main className="min-h-screen text-foreground relative z-10">
+    <main className="min-h-screen relative z-10">
       <section className="flex max-w-6xl justify-around items-center h-screen mx-auto px-4">
         <Image
           className="rounded-full w-70 h-70 z-10 -mt-40 lg:inline-block hidden transform -rotate-8"
@@ -26,23 +26,23 @@ export default async function HomePage() {
         />
         <section className="mx-auto max-w-4xl h-screen flex flex-col items-start justify-center px-4">
           <div className="mb-12 -mt-20 max-w-3xl flex flex-col items-start gap-6">
-            <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
+            <p className="text-sm font-medium uppercase tracking-widest">
               Portfolio
             </p>
             <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
-              <span className="text-muted-foreground text-4xl sm:text-5xl">
+              <span className="text-4xl sm:text-5xl">
                 Hello! I&apos;m
               </span>
-              <span className="text-foreground"> David Kilgallon</span>
+              <span> David Kilgallon</span>
             </h1>
             <CyclingSkills />
-            <p className="mt-6 text-lg leading-8 text-foreground">
+            <p className="mt-6 text-lg leading-8">
               Aspiring software developer with a creative background in digital
               media, building web projects that combine clean code, visual
               design, and practical problem-solving.
             </p>
             <div className="flex items-center justify-center gap-3">
-              <h2 className="text-foreground text-lg sm:text-xl">
+              <h2 className="text-lg sm:text-xl">
                 Let&apos;s connect...
               </h2>
               <a
@@ -106,7 +106,7 @@ export default async function HomePage() {
             <h2 className="text-4xl font-bold tracking-tight text-center mt-4">
               Projects
             </h2>
-            <p className="mt-3 max-w-2xl text-muted-foreground text-center">
+            <p className="mt-3 max-w-2xl text-center">
               My live projects published from GitHub are displayed below automatically
               when a deployed version is available.
             </p>
@@ -118,7 +118,7 @@ export default async function HomePage() {
           className="flex flex-col items-center mt-20 border-t py-10"
         >
           <h2 className="text-3xl font-bold tracking-tight">Contact</h2>
-          <p className="mt-4 max-w-2xl text-muted-foreground text-center">
+          <p className="mt-4 max-w-2xl text-center">
             Open to creative technology projects, and
             digital work involving web, media, design, or interactive content.
           </p>

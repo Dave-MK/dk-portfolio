@@ -41,12 +41,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 </CardHeader>
 
                 <CardContent className="flex-1">
-                    <p className="text-sm leading-6 text-muted-foreground">
+                    <p className="text-sm leading-6">
                         {project.description ??
                             "No description added yet."}
                     </p>
 
-                    <div className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
+                    <div className="mt-4 flex items-center gap-2 text-sm">
                         <Star className="size-4" />
                         <span>{project.stars}</span>
                     </div>

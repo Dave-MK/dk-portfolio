@@ -130,8 +130,8 @@
 }
 
 @theme inline {
-  --font-primary: var(--font-primary);
-  --font-secondary: var(--font-secondary);
+  --font-primary: var(--font-primary), system-ui, sans-serif;
+  --font-secondary: var(--font-secondary), system-ui, sans-serif;
 }
 
 @layer base {

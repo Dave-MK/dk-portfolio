@@ -12,10 +12,10 @@ export function SiteHeader() {
                     DK
                 </Link>
                 <nav className="flex items-center gap-3">
-                    <Link href="#projects" className="text-sm text-muted-foreground">
+                    <Link href="#projects" className="text-sm">
                     Projects
                     </Link>
-                    <Link href="#contact" className="text-sm text-muted-foreground">
+                    <Link href="#contact" className="text-sm">
                     Contact
                     </Link>
                     <Button asChild size="sm" variant="outline">
