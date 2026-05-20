@@ -20,8 +20,8 @@ export default async function HomePage() {
           className="rounded-full w-70 h-70 z-10 -mt-40 lg:inline-block hidden transform -rotate-8"
           src="/images/profile-pic.webp"
           alt="Profile Picture"
-          width="100"
-          height="100"
+          width="200"
+          height="200"
           loading="eager"
         />
         <section className="mx-auto max-w-4xl h-screen flex flex-col items-start justify-center px-4">
@@ -48,6 +48,8 @@ export default async function HomePage() {
               <a
               href="https://www.linkedin.com/in/david-kilgallon/"
               className="font-medium underline underline-offset-4"
+              target="_blank"
+              rel="noreferrer"
             >
               <Image
                 className="inline w-12 h-12 ml-4"
@@ -60,6 +62,8 @@ export default async function HomePage() {
               <a
                 href="https://github.com/Dave-MK"
                 className="font-medium underline underline-offset-4"
+                target="_blank"
+                rel="noreferrer"
               >
                 <Image
                   className="inline w-12 h-12"
@@ -72,6 +76,8 @@ export default async function HomePage() {
               <a
                 href="mailto:ntice.digital@gmail.com"
                 className="font-medium underline underline-offset-4"
+                target="_blank"
+                rel="noreferrer"
               >
                 <Image
                   className="inline w-14 h-14"
@@ -126,6 +132,8 @@ export default async function HomePage() {
             <a
               href="https://github.com/Dave-MK"
               className="font-medium underline underline-offset-4"
+              target="_blank"
+              rel="noreferrer"
             >
               <Image
                 className="inline w-12 h-12"
@@ -138,6 +146,8 @@ export default async function HomePage() {
             <a
               href="mailto:ntice.digital@gmail.com"
               className="font-medium underline underline-offset-4"
+              target="_blank"
+              rel="noreferrer"
             >
               <Image
                 className="w-10 h-10"
@@ -150,6 +160,8 @@ export default async function HomePage() {
             <a
               href="https://www.linkedin.com/in/david-kilgallon/"
               className="font-medium underline underline-offset-4"
+              target="_blank"
+              rel="noreferrer"
             >
               <Image
                 className="w-10 h-10"
