@@ -31,7 +31,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${arOneSans.variable} bg-transparent`}>
         <div className="fixed inset-0 -z-10 bg-[url('/images/hero-bg.webp')] bg-cover bg-center" aria-hidden />
-        <div className="fixed inset-0 -z-10 bg-linear-to-b from-black/80 via-black/50 to-black/20" />
+        <div className="absolute bottom-0 left-0 right-0 top-0 -z-10 bg-linear-to-b from-black/80 via-black/50 to-black/20" />
         <SiteHeader />
         {children}
       </body>

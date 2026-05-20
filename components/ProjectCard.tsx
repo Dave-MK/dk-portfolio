@@ -23,9 +23,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <motion.article
             whileHover={{ scale: 1.10, zIndex: 10 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            className="group rounded-2xl bg-linear-to-r from-cyan-500 to-fuchsia-500 p-px transition-all  duration-100 hover:shadow-2xl"
+            className="group ml-4 mr-4 sm:m-0 rounded-2xl bg-linear-to-r from-cyan-500 to-fuchsia-500 p-px transition-all  duration-100 hover:shadow-2xl"
         >
-            <Card className="flex h-full flex-col rounded-2xl border-0 bg-background/95 backdrop-blur">
+            <Card className="flex h-full flex-col rounded-2xl border-0 bg-background/95 backdrop-blur ">
                 <CardHeader>
                     <div className="flex items-start justify-between gap-4">
                         <CardTitle className="text-xl capitalize">
@@ -52,7 +52,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                     </div>
                 </CardContent>
                 
-                <CardFooter className="flex-gap-3 justify-around">
+                <CardFooter className="flex flex-gap-3 justify-around">
                     <Button asChild size="sm">
                         <a href={project.homepageUrl} target="_blank" rel="noreferrer">
                             <ExternalLink className="mr-2 size-4" />

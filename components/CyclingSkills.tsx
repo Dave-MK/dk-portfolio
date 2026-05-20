@@ -36,8 +36,8 @@ export function CyclingSkills() {
     const currentSkill = skills[currentSkillIndex];
 
     return (
-        <div className="mt-4 flex min-h-8 items-center text-2xl font-light sm:text-4xl">
-            <span className="mr-2 text-2xl sm:text-3xl">I have a <strong className="font-extrabold text-primary">passion</strong> for...</span>
+        <div className="sm:mt-4 flex min-h-8 items-center text-md font-light sm:text-4xl">
+            <span className="mr-2 text-xs sm:text-3xl">I have a <strong className="font-extrabold text-primary">passion</strong> for...</span>
             <AnimatePresence mode="wait">
                 <motion.span
                     key={currentSkill}
@@ -45,7 +45,7 @@ export function CyclingSkills() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -8 }}
                     transition={{ duration: 0.25 }}
-                    className="text-2xl font-extrabold sm:text-4xl text-accent ml-4"
+                    className="text-xs sm:text-3xl font-extrabold text-accent ml-4"
                 >
                     {currentSkill}
                 </motion.span>
