@@ -74,10 +74,9 @@ export default async function HomePage() {
                 />
               </a>
               <a
-                href="mailto:ntice.digital@gmail.com"
-                className="font-medium underline underline-offset-4"
-                target="_blank"
-                rel="noreferrer"
+                href="mailto:ntice.digital@gmail.com?subject=Portfolio%20Enquiry"
+                aria-label="Email David Kilgallon"
+                className="group inline-block"
               >
                 <Image
                   className="inline w-14 h-14"
@@ -144,10 +143,9 @@ export default async function HomePage() {
               />
             </a>
             <a
-              href="mailto:ntice.digital@gmail.com"
-              className="font-medium underline underline-offset-4"
-              target="_blank"
-              rel="noreferrer"
+              href="mailto:ntice.digital@gmail.com?subject=Portfolio%20Enquiry"
+              aria-label="Email David Kilgallon"
+              className="group inline-block"
             >
               <Image
                 className="w-10 h-10"
