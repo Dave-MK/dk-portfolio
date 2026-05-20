@@ -74,7 +74,7 @@ export default async function HomePage() {
                 />
               </a>
               <a
-                href="mailto:ntice.digital@gmail.com?subject=Portfolio%20Enquiry"
+                href="mailto:ntice.digital@gmail.com?subject=Enquiry"
                 aria-label="Email David Kilgallon"
                 className="group inline-block"
               >
@@ -143,7 +143,7 @@ export default async function HomePage() {
               />
             </a>
             <a
-              href="mailto:ntice.digital@gmail.com?subject=Portfolio%20Enquiry"
+              href="mailto:ntice.digital@gmail.com?subject=Enquiry"
               aria-label="Email David Kilgallon"
               className="group inline-block"
             >
