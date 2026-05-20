@@ -20,7 +20,7 @@ export function SiteHeader() {
                     </Link>
                     <Button asChild size="sm" variant="outline">
                         <a
-                        href="https://github.com/YOUR_USERNAME"
+                        href="https://github.com/Dave-MK"
                         target="_blank"
                         rel="noreferrer"
                         >

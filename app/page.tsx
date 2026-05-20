@@ -58,7 +58,7 @@ export default async function HomePage() {
               />
             </a>
               <a
-                href="https://github.com/ntice-digital"
+                href="https://github.com/Dave-MK"
                 className="font-medium underline underline-offset-4"
               >
                 <Image
@@ -124,7 +124,7 @@ export default async function HomePage() {
           </p>
           <div className="mt-6 flex flex-wrap gap-3 text-xl items-center justify-center">
             <a
-              href="mailto:ntice.digital@gmail.com"
+              href="https://github.com/Dave-MK"
               className="font-medium underline underline-offset-4"
             >
               <Image
