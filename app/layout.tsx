@@ -31,7 +31,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geist.variable} ${ibmPlexSans.variable} font-secondary bg-transparent`}>
         <div className="fixed inset-0 -z-10 bg-[url('/images/hero-bg.png')] bg-cover bg-center" aria-hidden />
-        <div className="fixed inset-0 -z-10 bg-gradient-to-b from-black/80 via-black/50 to-black/20" />
+        <div className="fixed inset-0 -z-10 bg-linear-to-b from-black/80 via-black/50 to-black/20" />
         <SiteHeader />
         {children}
       </body>

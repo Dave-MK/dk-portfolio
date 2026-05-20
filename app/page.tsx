@@ -17,11 +17,12 @@ export default async function HomePage() {
     <main className="min-h-screen text-foreground relative z-10">
       <section className="flex max-w-6xl justify-around items-center h-screen mx-auto px-4">
         <Image
-          className="rounded-full w-70 h-70 z-10 -mt-40 lg:inline-block hidden"
-          src="/images/profile-pic.jpg"
+          className="rounded-full w-70 h-70 z-10 -mt-40 lg:inline-block hidden transform -rotate-8"
+          src="/images/profile-pic.webp"
           alt="Profile Picture"
-          width="0"
-          height="0"
+          width="100"
+          height="100"
+          loading="eager"
         />
         <section className="mx-auto max-w-4xl h-screen flex flex-col items-start justify-center px-4">
           <div className="mb-12 -mt-20 max-w-3xl flex flex-col items-start gap-6">
@@ -73,7 +74,7 @@ export default async function HomePage() {
                 className="font-medium underline underline-offset-4"
               >
                 <Image
-                  className="inline w-12 h-12"
+                  className="inline w-14 h-14"
                   src="/images/gmail-icon.svg"
                   alt="Email Icon"
                   width="0"
@@ -87,7 +88,7 @@ export default async function HomePage() {
                 className="font-medium underline underline-offset-4"
               >
                 <Image
-                  className="inline w-12 h-12 ml-4"
+                  className="inline w-16 h-16"
                   src="/images/youtube-color-icon.svg"
                   alt="YouTube Icon"
                   width="0"
@@ -97,9 +98,9 @@ export default async function HomePage() {
             </div>
           </div>
         </section>
-        <div className="inset-1/4 w-full h-50 bg-cyan-400/75 z-100 animate-pulse" />
       </section>
-      <section className="z-5 w-full pt-8 bg-background sm:px-6 xs:px-4">
+      <div className="absolute top-85 w-full h-150 bg-linear-to-t from-cyan-600/70 via-cyan-600/30 to-cyan-100/0 -z-5 animate-pulse animation-duration-3000" />
+      <section className="z-5 w-full pt-8 bg-background sm:px-6 xs:px-4 border-t border-cyan-500/45">
         <section id="projects" className="mx-auto max-w-6xl">
           <div className="flex flex-col items-center mb-8">
             <h2 className="text-4xl font-bold tracking-tight text-center mt-4">
@@ -116,9 +117,9 @@ export default async function HomePage() {
           id="contact"
           className="flex flex-col items-center mt-20 border-t py-10"
         >
-          <h2 className="text-2xl font-bold tracking-tight">Contact</h2>
+          <h2 className="text-3xl font-bold tracking-tight">Contact</h2>
           <p className="mt-4 max-w-2xl text-muted-foreground text-center">
-            Open to junior developer roles, creative technology projects, and
+            Open to creative technology projects, and
             digital work involving web, media, design, or interactive content.
           </p>
           <div className="mt-6 flex flex-wrap gap-3 text-xl items-center justify-center">

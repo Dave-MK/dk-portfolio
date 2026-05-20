@@ -4,18 +4,17 @@ import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 
 const skills = [
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "TypeScript",
-    "React",
-    "Next.js",
+    "Figma | Prototyping",
+    "HTML5 | CSS3",
+    "JavaScript | TypeScript",
+    "React | Next.js",
     "Tailwind CSS",
     "Python",
-    "SQL",
-    "Git",
-    "UI/UX Design",
-    "3D Modeling",
+    "Data Visualization",
+    "SQL | PostgreSQL",
+    "Git | GitHub",
+    "UI|UX Design",
+    "3D Modeling | Blender",
     "Motion Design",
     "Visual Storytelling",
     "Agile Methodologies",
@@ -38,7 +37,7 @@ export function CyclingSkills() {
 
     return (
         <div className="mt-4 flex min-h-8 items-center text-2xl font-light text-muted-foreground sm:text-4xl">
-            <span className="mr-2">I build using </span>
+            <span className="mr-2 text-2xl sm:text-3xl">I have a <strong className="font-extrabold text-primary">passion</strong> for...</span>
             <AnimatePresence mode="wait">
                 <motion.span
                     key={currentSkill}
@@ -46,7 +45,7 @@ export function CyclingSkills() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -8 }}
                     transition={{ duration: 0.25 }}
-                    className="text-2xl font-extrabold sm:text-4xl text-accent"
+                    className="text-2xl font-extrabold sm:text-4xl text-accent ml-4"
                 >
                     {currentSkill}
                 </motion.span>

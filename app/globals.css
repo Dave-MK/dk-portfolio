@@ -61,7 +61,7 @@
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(73.118% 0.14188 169.282);
+  --accent: oklch(78.272% 0.14695 172.358);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
@@ -146,5 +146,15 @@
   h5,
   h6 {
     font-family: var(--font-primary), system-ui, sans-serif;
+  }
+}
+
+@theme {
+  --animate-spin-slow: spin-slow 8s linear infinite;
+
+  @keyframes spin-slow {
+    to {
+      transform: rotate(360deg);
+    }
   }
 }
