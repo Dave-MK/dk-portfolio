@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, AR_One_Sans } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
+import { Analytics } from "@vercel/analytics/next"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -34,6 +35,7 @@ export default function RootLayout({
         <div className="absolute bottom-0 left-0 right-0 top-0 -z-10 bg-linear-to-b from-black/80 via-black/50 to-black/20" />
         <SiteHeader />
         {children}
+        <Analytics />
       </body>
     </html>
   );
