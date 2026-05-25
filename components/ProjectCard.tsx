@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "motion/react";
-import { ExternalLink, Star } from "lucide-react";
+import { CalendarDays, ExternalLink, Star } from "lucide-react";
 import { GitHubIcon } from "@/components/icons/GitHubIcon";
-import { GitHubProject } from "@/lib/types";
+import { PortfolioProject } from "@/lib/types";
 import {
     Card,
     CardContent,
@@ -15,7 +15,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 type ProjectCardProps = {
-    project: GitHubProject;
+    project: PortfolioProject;
 };
 
 export function ProjectCard({ project }: ProjectCardProps) {
@@ -46,9 +46,19 @@ export function ProjectCard({ project }: ProjectCardProps) {
                             "No description added yet."}
                     </p>
 
-                    <div className="mt-4 flex items-center gap-2 text-sm">
-                        <Star className="size-4" />
-                        <span>{project.stars}</span>
+                    <div className="mt-4 flex flex-col gap-2 text-sm">
+                        {project.stars !== null && (
+                            <div className="flex items-center gap-2">
+                                <Star className="size-4" />
+                                <span>{project.stars}</span>
+                            </div>
+                        )}
+                        {project.updatedLabel && (
+                            <div className="flex items-center gap-2 text-muted-foreground">
+                                <CalendarDays className="size-4" />
+                                <span>Last deployed {project.updatedLabel}</span>
+                            </div>
+                        )}
                     </div>
                 </CardContent>
                 
@@ -60,12 +70,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
                         </a>
                     </Button>
 
-                    <Button asChild variant="outline" size="sm">
-                        <a href={project.htmlUrl} target="_blank" rel="noreferrer">
-                            <GitHubIcon className="mr-2 size-4" />
-                            View on GitHub
-                        </a>
-                    </Button>
+                    {project.repositoryUrl && (
+                        <Button asChild variant="outline" size="sm">
+                            <a href={project.repositoryUrl} target="_blank" rel="noreferrer">
+                                <GitHubIcon className="mr-2 size-4" />
+                                View on GitHub
+                            </a>
+                        </Button>
+                    )}
                 </CardFooter>
             </Card>
         </motion.article>

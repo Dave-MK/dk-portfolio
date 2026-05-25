@@ -1,4 +1,4 @@
-import { GitHubProject } from "@/lib/types";
+import { PortfolioProject } from "@/lib/types";
 
 type GitHubRepoResponse = {
     id: number;
@@ -24,58 +24,59 @@ const headers: HeadersInit = {
     ...(token ? { Authorization: `Bearer ${token}` } : {}),
 };
 
-export async function getGithubPagesProject(): Promise<GitHubProject[]> {
+export async function getGithubPagesProjects(): Promise<PortfolioProject[]> {
     if (!username) {
         throw new Error("GITHUB_USERNAME environment variable is not set.");
     }
 
     const reposResponse = await fetch(
-        `https://api.github.com/users/${username}/repos?per_page=100&sort=updated`, {
+        `https://api.github.com/users/${username}/repos?per_page=100&sort=updated`,
+        {
             headers,
             next: {
-                revalidate: 3600, // Revalidate every 3600 seconds
+                revalidate: 3600,
             },
         }
     );
 
     if (!reposResponse.ok) {
-        throw new Error(`Failed to fetch GitHub repositories`);
+        throw new Error("Failed to fetch GitHub repositories.");
     }
 
     const repos = (await reposResponse.json()) as GitHubRepoResponse[];
-    const usableRepos = repos.filter(
-        (repo) => !repo.fork && !repo.archived);
+    const usableRepos = repos.filter((repo) => !repo.fork && !repo.archived);
 
-    const projects = await Promise.all(
+    const projects: Array<PortfolioProject | null> = await Promise.all(
         usableRepos.map(async (repo) => {
             const pagesResponse = await fetch(
-                `https://api.github.com/repos/${username}/${repo.name}/pages`, 
+                `https://api.github.com/repos/${username}/${repo.name}/pages`,
                 {
                     headers,
                     next: {
-                        revalidate: 3600, // Revalidate every 3600 seconds
+                        revalidate: 3600,
                     },
                 }
             );
 
             if (!pagesResponse.ok) {
-                return null; // Skip repos without GitHub Pages
+                return null;
             }
 
             const pages = (await pagesResponse.json()) as GitHubPagesResponse;
 
             return {
-                id: repo.id,
+                id: String(repo.id),
                 name: repo.name,
                 description: repo.description,
-                htmlUrl: repo.html_url,
+                repositoryUrl: repo.html_url,
                 homepageUrl: pages.html_url,
                 language: repo.language,
                 stars: repo.stargazers_count,
                 updatedAt: repo.updated_at,
-            };
+                updatedLabel: null,
+            } satisfies PortfolioProject;
         })
     );
 
-return projects.filter((project): project is GitHubProject => project !== null);
+    return projects.filter((project): project is PortfolioProject => project !== null);
 }

@@ -1,10 +1,11 @@
-export type GitHubProject = {
-    id: number;
+export type PortfolioProject = {
+    id: string;
     name: string;
     description: string | null;
-    htmlUrl: string;
+    repositoryUrl: string | null;
     homepageUrl: string;
     language: string | null;
-    stars: number;
+    stars: number | null;
     updatedAt: string;
+    updatedLabel: string | null;
 };

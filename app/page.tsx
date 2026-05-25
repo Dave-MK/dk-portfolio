@@ -1,14 +1,22 @@
 import { CyclingSkills } from "@/components/CyclingSkills";
 import { ProjectsGrid } from "@/components/ProjectsGrid";
-import { getGithubPagesProject } from "@/lib/github";
-import { GitHubProject } from "@/lib/types";
+import { PortfolioProject } from "@/lib/types";
+import { getGithubPagesProjects } from "@/lib/github";
+import { getVercelProjects } from "@/lib/vercel";
 import Image from "next/image";
 
 export default async function HomePage() {
-  let projects: GitHubProject[] = [];
+  let liveApps: PortfolioProject[] = [];
+  let appsInDevelopment: PortfolioProject[] = [];
 
   try {
-    projects = await getGithubPagesProject();
+    liveApps = await getVercelProjects();
+  } catch (error) {
+    console.error(error);
+  }
+
+  try {
+    appsInDevelopment = await getGithubPagesProjects();
   } catch (error) {
     console.error(error);
   }
@@ -106,21 +114,39 @@ export default async function HomePage() {
       </section>
       <div className="absolute top-85 w-full h-150 bg-linear-to-t from-cyan-600/70 via-cyan-600/30 to-cyan-100/0 -z-5 animate-pulse animation-duration-3000" />
       <section className="z-5 w-full pt-8 bg-background sm:px-6 xs:px-4 border-t border-cyan-500/45">
-        <section id="projects" className="mx-auto max-w-6xl">
+        <section id="live" className="mx-auto max-w-6xl scroll-mt-24">
           <div className="flex flex-col items-center mb-8">
             <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-center mt-4">
-              Projects
+              Live Apps
             </h2>
             <p className="mt-3 px-4 sm:px-px max-w-2xl text-center text-sm sm:text-lg">
-              My live projects published from GitHub are displayed below automatically
-              when a deployed version is available.
+              My live Vercel sites are displayed below automatically whenever a
+              production deployment is available.
             </p>
           </div>
-          <ProjectsGrid projects={projects} />
+          <ProjectsGrid
+            projects={liveApps}
+            emptyMessage="No live Vercel apps found yet."
+          />
+        </section>
+        <section id="development" className="mx-auto mt-20 max-w-6xl scroll-mt-24">
+          <div className="flex flex-col items-center mb-8">
+            <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-center mt-4">
+              Apps in Development
+            </h2>
+            <p className="mt-3 px-4 sm:px-px max-w-2xl text-center text-sm sm:text-lg">
+              GitHub Pages projects are listed here so in-progress and earlier
+              builds still have a home alongside the live Vercel apps.
+            </p>
+          </div>
+          <ProjectsGrid
+            projects={appsInDevelopment}
+            emptyMessage="No GitHub Pages projects found yet."
+          />
         </section>
         <section
           id="contact"
-          className="flex flex-col items-center mt-20 border-t py-10"
+          className="mt-20 flex scroll-mt-24 flex-col items-center border-t py-10"
         >
           <h2 className="text-3xl font-bold tracking-tight">Contact</h2>
           <p className="mt-4 max-w-2xl text-center">

@@ -1,16 +1,20 @@
-import { GitHubProject } from "@/lib/types";
+import { PortfolioProject } from "@/lib/types";
 import { ProjectCard } from "@/components/ProjectCard";
 
 type ProjectsGridProps = {
-    projects: GitHubProject[];
+    projects: PortfolioProject[];
+    emptyMessage?: string;
 };
 
-export function ProjectsGrid({ projects }: ProjectsGridProps) {
+export function ProjectsGrid({
+    projects,
+    emptyMessage = "No projects found yet.",
+}: ProjectsGridProps) {
     if (projects.length === 0) {
         return (
         <div className="rounded-2xl border border-dashed p-8 text-center">
             <p>
-                No GitHub Pages projects found yet.
+                {emptyMessage}
             </p>
         </div>
         );
