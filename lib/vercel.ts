@@ -59,6 +59,13 @@ const fallbackLiveApps = [
         githubOwner: "Dave-MK",
         githubRepo: "readfit",
     },
+    {
+        name: "signalibrium",
+        homepageUrl: "https://signalibrium.vercel.app",
+        repositoryUrl: "https://github.com/Dave-MK/signalibrium",
+        githubOwner: "Dave-MK",
+        githubRepo: "signalibrium",
+    },
 ] as const;
 
 function getVercelAccountParams(): URLSearchParams {
