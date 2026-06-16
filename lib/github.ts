@@ -26,7 +26,7 @@ const headers: HeadersInit = {
 
 export async function getGithubPagesProjects(): Promise<PortfolioProject[]> {
     if (!username) {
-        throw new Error("GITHUB_USERNAME environment variable is not set.");
+        return [];
     }
 
     const reposResponse = await fetch(

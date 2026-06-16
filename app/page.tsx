@@ -1,9 +1,13 @@
-import { CyclingSkills } from "@/components/CyclingSkills";
-import { ProjectsGrid } from "@/components/ProjectsGrid";
-import { PortfolioProject } from "@/lib/types";
+import { Hero } from "@/components/Hero";
+import { FeaturedProjects } from "@/components/FeaturedProjects";
+import { StackSection } from "@/components/StackSection";
+import { ProcessSection } from "@/components/ProcessSection";
+import { AboutSection } from "@/components/AboutSection";
+import { ContactSection } from "@/components/ContactSection";
+import { Footer } from "@/components/Footer";
 import { getGithubPagesProjects } from "@/lib/github";
 import { getVercelProjects } from "@/lib/vercel";
-import Image from "next/image";
+import type { PortfolioProject } from "@/lib/types";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -13,8 +17,9 @@ const jsonLd = {
       "@id": "https://davidkilgallon.dev/#person",
       name: "David Kilgallon",
       url: "https://davidkilgallon.dev",
+      jobTitle: "Creative Front-End Developer",
       description:
-        "Software developer with a creative background in digital media, building web projects that combine clean code, visual design, and practical problem-solving.",
+        "Creative front-end developer building clean, useful digital products. Web development, UI design, digital media, and practical problem-solving.",
       image: "https://davidkilgallon.dev/images/profile-pic.webp",
       sameAs: [
         "https://www.linkedin.com/in/david-kilgallon/",
@@ -22,24 +27,28 @@ const jsonLd = {
         "https://www.youtube.com/@ntice.digital",
       ],
       knowsAbout: [
-        "Web Development",
         "React",
         "Next.js",
         "TypeScript",
         "Tailwind CSS",
-        "3D Design",
-        "Motion Design",
-        "UI/UX Design",
+        "UI Design",
         "Digital Media",
+        "Motion Design",
+        "Figma",
       ],
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "St Helens",
+        addressRegion: "Merseyside",
+        addressCountry: "GB",
+      },
     },
     {
       "@type": "WebSite",
       "@id": "https://davidkilgallon.dev/#website",
       url: "https://davidkilgallon.dev",
       name: "David Kilgallon Portfolio",
-      description:
-        "Portfolio of David Kilgallon — software developer and creative technologist.",
+      description: "Creative front-end developer portfolio.",
       author: { "@id": "https://davidkilgallon.dev/#person" },
     },
   ],
@@ -47,7 +56,7 @@ const jsonLd = {
 
 export default async function HomePage() {
   let liveApps: PortfolioProject[] = [];
-  let appsInDevelopment: PortfolioProject[] = [];
+  let devApps: PortfolioProject[] = [];
 
   try {
     liveApps = await getVercelProjects();
@@ -56,220 +65,26 @@ export default async function HomePage() {
   }
 
   try {
-    appsInDevelopment = await getGithubPagesProjects();
+    devApps = await getGithubPagesProjects();
   } catch (error) {
     console.error(error);
   }
 
   return (
-    <main className="min-h-screen relative z-10">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <section className="flex max-w-6xl justify-around items-center h-screen mx-auto px-4">
-        <Image
-          className="rounded-full w-70 h-70 z-10 -mt-40 lg:inline-block hidden transform -rotate-8"
-          src="/images/profile-pic.webp"
-          alt="David Kilgallon — software developer and creative technologist"
-          width="200"
-          height="200"
-          loading="eager"
-        />
-        <div className="mx-auto max-w-4xl h-screen flex flex-col items-start justify-center px-4">
-          <div className="mb-12 -mt-20 max-w-3xl flex flex-col items-start gap-6">
-            <p className="text-sm font-medium uppercase tracking-widest">
-              Portfolio
-            </p>
-            <h1 className="text-3xl font-bold tracking-tight sm:text-6xl">
-              <span className="text-2xl sm:text-5xl">
-                Hello! I&apos;m
-              </span>
-              <span> David Kilgallon</span>
-            </h1>
-            <CyclingSkills />
-            <p className="mt-6 text-sm sm:text-xl leading-8">
-              Software developer with a creative background in digital media,
-              building web projects that combine clean code, visual design, and
-              practical problem-solving.
-            </p>
-            <div className="flex items-center justify-center gap-3">
-              <p className="text-xs sm:text-xl">
-                Let&apos;s connect...
-              </p>
-              <a
-                href="https://www.linkedin.com/in/david-kilgallon/"
-                aria-label="David Kilgallon on LinkedIn"
-                className="font-medium underline underline-offset-4"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Image
-                  className="inline w-8 h-8 sm:w-12 sm:h-12 ml-4"
-                  src="/images/linkedin-app-icon.svg"
-                  alt=""
-                  aria-hidden="true"
-                  width={48}
-                  height={48}
-                />
-              </a>
-              <a
-                href="https://github.com/Dave-MK"
-                aria-label="David Kilgallon on GitHub"
-                className="font-medium underline underline-offset-4"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Image
-                  className="inline w-8 h-8 sm:w-12 sm:h-12"
-                  src="/images/github-white-icon.svg"
-                  alt=""
-                  aria-hidden="true"
-                  width={48}
-                  height={48}
-                />
-              </a>
-              <a
-                href="mailto:ntice.digital@gmail.com?subject=Enquiry"
-                aria-label="Email David Kilgallon"
-                className="group inline-block"
-              >
-                <Image
-                  className="inline w-8 h-8 sm:w-14 sm:h-14"
-                  src="/images/gmail-icon.svg"
-                  alt=""
-                  aria-hidden="true"
-                  width={56}
-                  height={56}
-                />
-              </a>
-              <a
-                href="https://www.youtube.com/@ntice.digital"
-                aria-label="David Kilgallon on YouTube"
-                target="_blank"
-                rel="noreferrer"
-                className="font-medium underline underline-offset-4"
-              >
-                <Image
-                  className="inline w-8 h-8 sm:w-16 sm:h-16"
-                  src="/images/youtube-color-icon.svg"
-                  alt=""
-                  aria-hidden="true"
-                  width={64}
-                  height={64}
-                />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-      <div className="absolute top-85 w-full h-150 bg-linear-to-t from-cyan-600/70 via-cyan-600/30 to-cyan-100/0 -z-5 animate-pulse animation-duration-3000" />
-      <section className="z-5 w-full pt-8 bg-background sm:px-6 xs:px-4 border-t border-cyan-500/45">
-        <section id="live" className="mx-auto max-w-6xl scroll-mt-24">
-          <div className="flex flex-col items-center mb-8">
-            <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-center mt-4">
-              Live Apps
-            </h2>
-            <p className="mt-3 px-4 sm:px-px max-w-2xl text-center text-sm sm:text-lg">
-              My live Vercel sites are displayed below automatically whenever a
-              production deployment is available.
-            </p>
-          </div>
-          <ProjectsGrid
-            projects={liveApps}
-            emptyMessage="No live Vercel apps found yet."
-          />
-        </section>
-        <section id="development" className="mx-auto mt-20 max-w-6xl scroll-mt-24">
-          <div className="flex flex-col items-center mb-8">
-            <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-center mt-4">
-              Apps in Development
-            </h2>
-            <p className="mt-3 px-4 sm:px-px max-w-2xl text-center text-sm sm:text-lg">
-              GitHub Pages projects are listed here so in-progress and earlier
-              builds still have a home alongside the live Vercel apps.
-            </p>
-          </div>
-          <ProjectsGrid
-            projects={appsInDevelopment}
-            emptyMessage="No GitHub Pages projects found yet."
-          />
-        </section>
-        <section
-          id="contact"
-          className="mt-20 flex scroll-mt-24 flex-col items-center border-t py-10"
-        >
-          <h2 className="text-3xl font-bold tracking-tight">Contact</h2>
-          <p className="mt-4 max-w-2xl text-center">
-            Open to creative technology projects, and
-            digital work involving web, media, design, or interactive content.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-3 text-xl items-center justify-center">
-            <a
-              href="https://github.com/Dave-MK"
-              aria-label="David Kilgallon on GitHub"
-              className="font-medium underline underline-offset-4"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Image
-                className="inline w-8 h-8 sm:w-12 sm:h-12"
-                src="/images/github-white-icon.svg"
-                alt=""
-                aria-hidden="true"
-                width={48}
-                height={48}
-              />
-            </a>
-            <a
-              href="mailto:ntice.digital@gmail.com?subject=Enquiry"
-              aria-label="Email David Kilgallon"
-              className="group inline-block"
-            >
-              <Image
-                className="w-10 h-10"
-                src="/images/email-envelope-white-icon.svg"
-                alt=""
-                aria-hidden="true"
-                width={40}
-                height={40}
-              />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/david-kilgallon/"
-              aria-label="David Kilgallon on LinkedIn"
-              className="font-medium underline underline-offset-4"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Image
-                className="w-10 h-10"
-                src="/images/linkedin-app-white-icon.svg"
-                alt=""
-                aria-hidden="true"
-                width={40}
-                height={40}
-              />
-            </a>
-            <a
-              href="https://www.youtube.com/@ntice.digital"
-              aria-label="David Kilgallon on YouTube"
-              target="_blank"
-              rel="noreferrer"
-              className="font-medium underline underline-offset-4"
-            >
-              <Image
-                className="w-10 h-10"
-                src="/images/youtube-app-white-icon.svg"
-                alt=""
-                aria-hidden="true"
-                width={40}
-                height={40}
-              />
-            </a>
-          </div>
-        </section>
-      </section>
-    </main>
+      <main>
+        <Hero />
+        <FeaturedProjects liveApps={liveApps} devApps={devApps} />
+        <StackSection />
+        <ProcessSection />
+        <AboutSection />
+        <ContactSection />
+        <Footer />
+      </main>
+    </>
   );
 }

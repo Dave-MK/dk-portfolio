@@ -1,85 +1,115 @@
-"use client";
-
-import { motion } from "motion/react";
-import { CalendarDays, ExternalLink, Star } from "lucide-react";
+import Link from "next/link";
+import { ExternalLink } from "lucide-react";
 import { GitHubIcon } from "@/components/icons/GitHubIcon";
-import { PortfolioProject } from "@/lib/types";
-import {
-    Card,
-    CardContent,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import type { ProjectStatus } from "@/lib/projects";
 
-type ProjectCardProps = {
-    project: PortfolioProject;
+export type ProjectCardProps = {
+  title: string;
+  tagline?: string;
+  description: string;
+  status: ProjectStatus;
+  tech: string[];
+  liveUrl?: string;
+  repoUrl?: string;
+  workSlug?: string;
+  featured?: boolean;
+  accentFrom?: string;
+  accentTo?: string;
 };
 
-export function ProjectCard({ project }: ProjectCardProps) {
-    return (
-        <motion.article
-            whileHover={{ scale: 1.10, zIndex: 10 }}
-            transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            className="group ml-4 mr-4 sm:m-0 rounded-2xl bg-linear-to-r from-cyan-500 to-fuchsia-500 p-px transition-all  duration-100 hover:shadow-2xl"
-        >
-            <Card className="flex h-full flex-col rounded-2xl border-0 bg-background/95 backdrop-blur ">
-                <CardHeader>
-                    <div className="flex items-start justify-between gap-4">
-                        <CardTitle className="text-xl capitalize">
-                            {project.name.replaceAll("-", " ")}
-                        </CardTitle>
+const statusStyles: Record<ProjectStatus, string> = {
+  Live: "border-emerald-400/25 bg-emerald-400/10 text-emerald-300",
+  "In Development": "border-sky-400/25 bg-sky-400/10 text-sky-300",
+  Archived: "border-slate-500/25 bg-slate-500/10 text-slate-400",
+};
 
-                        {project.language && (
-                            <Badge variant="secondary">
-                                {project.language}
-                            </Badge>
-                        )}
-                    </div>
-                </CardHeader>
+export function ProjectCard({
+  title,
+  tagline,
+  description,
+  status,
+  tech,
+  liveUrl,
+  repoUrl,
+  workSlug,
+  featured = false,
+  accentFrom = "from-sky-500",
+  accentTo = "to-violet-500",
+}: ProjectCardProps) {
+  return (
+    <article className="group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition-all duration-300 hover:-translate-y-1 hover:border-sky-400/25 hover:bg-white/[0.055] hover:shadow-[0_8px_30px_rgba(56,189,248,0.07)]">
+      {featured && (
+        <div className={`h-[3px] w-full bg-gradient-to-r ${accentFrom} ${accentTo} opacity-70`} />
+      )}
 
-                <CardContent className="flex-1">
-                    <p className="text-sm leading-6">
-                        {project.description ??
-                            "No description added yet."}
-                    </p>
+      <div className="flex flex-1 flex-col p-6">
+        {/* Title + badge */}
+        <div className="mb-3 flex items-start justify-between gap-3">
+          <div>
+            <h3 className="text-base font-semibold text-[#F4F7FB] leading-snug">{title}</h3>
+            {tagline && (
+              <p className="mt-0.5 text-xs text-[#9BA7B7]">{tagline}</p>
+            )}
+          </div>
+          <span className={`shrink-0 rounded-full border px-2.5 py-0.5 text-xs font-medium ${statusStyles[status]}`}>
+            {status}
+          </span>
+        </div>
 
-                    <div className="mt-4 flex flex-col gap-2 text-sm">
-                        {project.stars !== null && (
-                            <div className="flex items-center gap-2">
-                                <Star className="size-4" />
-                                <span>{project.stars}</span>
-                            </div>
-                        )}
-                        {project.updatedLabel && (
-                            <div className="flex items-center gap-2 text-muted-foreground">
-                                <CalendarDays className="size-4" />
-                                <span>Last deployed {project.updatedLabel}</span>
-                            </div>
-                        )}
-                    </div>
-                </CardContent>
-                
-                <CardFooter className="flex flex-gap-3 justify-around">
-                    <Button asChild size="sm">
-                        <a href={project.homepageUrl} target="_blank" rel="noreferrer">
-                            <ExternalLink className="mr-2 size-4" />
-                            View Live Site
-                        </a>
-                    </Button>
+        <p className="mb-4 text-sm leading-6 text-[#9BA7B7] flex-1">{description}</p>
 
-                    {project.repositoryUrl && (
-                        <Button asChild variant="outline" size="sm">
-                            <a href={project.repositoryUrl} target="_blank" rel="noreferrer">
-                                <GitHubIcon className="mr-2 size-4" />
-                                View on GitHub
-                            </a>
-                        </Button>
-                    )}
-                </CardFooter>
-            </Card>
-        </motion.article>
-    );
+        {/* Tech pills */}
+        {tech.length > 0 && (
+          <div className="mb-4 flex flex-wrap gap-1.5">
+            {tech.map((item) => (
+              <span
+                key={item}
+                className="rounded-full border border-sky-400/15 bg-sky-400/[0.07] px-2.5 py-0.5 text-xs text-sky-300/80"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+        )}
+
+        {/* Links */}
+        {(liveUrl || repoUrl || workSlug) && (
+          <div className="flex flex-wrap gap-4 border-t border-white/[0.07] pt-4 mt-auto">
+            {liveUrl && (
+              <a
+                href={liveUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`View ${title} live site`}
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-sky-400 transition-colors hover:text-sky-300"
+              >
+                <ExternalLink className="size-3.5" />
+                View Live
+              </a>
+            )}
+            {repoUrl && (
+              <a
+                href={repoUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`View ${title} on GitHub`}
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-[#9BA7B7] transition-colors hover:text-[#F4F7FB]"
+              >
+                <GitHubIcon className="size-3.5" />
+                View Code
+              </a>
+            )}
+            {workSlug && (
+              <Link
+                href={`/work/${workSlug}`}
+                className="ml-auto inline-flex items-center gap-1 text-xs font-medium text-[#64748B] transition-colors hover:text-[#9BA7B7]"
+              >
+                Case study →
+              </Link>
+            )}
+          </div>
+        )}
+      </div>
+    </article>
+  );
 }

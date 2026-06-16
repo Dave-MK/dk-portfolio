@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, AR_One_Sans } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Analytics } from "@vercel/analytics/next";
@@ -11,9 +11,9 @@ const inter = Inter({
   display: "swap",
 });
 
-const arOneSans = AR_One_Sans({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-secondary",
+  variable: "--font-heading",
   display: "swap",
 });
 
@@ -23,25 +23,25 @@ const OG_IMAGE = "/images/og-image.png";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "David Kilgallon | Portfolio",
+    default: "David Kilgallon | Creative Front-End Developer",
     template: "%s | David Kilgallon",
   },
   description:
-    "Portfolio of David Kilgallon — aspiring software developer with a creative background in digital media, building web projects that combine clean code, visual design, and practical problem-solving.",
+    "Creative front-end developer building clean, useful digital products. Portfolio of David Kilgallon — web development, UI design, digital media, and creative technology.",
   keywords: [
     "David Kilgallon",
     "portfolio",
+    "front-end developer",
     "web developer",
-    "software developer",
+    "creative technology",
     "Next.js",
     "React",
-    "creative technology",
-    "3D",
-    "motion design",
-    "digital media",
-    "UI/UX",
-    "Tailwind CSS",
     "TypeScript",
+    "UI design",
+    "digital media",
+    "Tailwind CSS",
+    "St Helens",
+    "Merseyside",
   ],
   authors: [{ name: "David Kilgallon", url: SITE_URL }],
   creator: "David Kilgallon",
@@ -50,23 +50,23 @@ export const metadata: Metadata = {
     locale: "en_GB",
     url: SITE_URL,
     siteName: "David Kilgallon Portfolio",
-    title: "David Kilgallon | Portfolio",
+    title: "David Kilgallon | Creative Front-End Developer",
     description:
-      "Software developer with a creative background in digital media, building web projects that combine clean code, visual design, and practical problem-solving.",
+      "Creative front-end developer building clean, useful digital products. Web development, UI design, digital media.",
     images: [
       {
         url: OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: "David Kilgallon — Software Developer Portfolio",
+        alt: "David Kilgallon — Creative Front-End Developer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "David Kilgallon | Portfolio",
+    title: "David Kilgallon | Creative Front-End Developer",
     description:
-      "Software developer with a creative background in digital media, building web projects that combine clean code, visual design, and practical problem-solving.",
+      "Creative front-end developer building clean, useful digital products.",
     images: [OG_IMAGE],
   },
   robots: {
@@ -87,14 +87,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${arOneSans.variable} bg-transparent`}>
-        <div className="fixed inset-0 -z-10 bg-[url('/images/hero-bg.webp')] bg-cover bg-center" aria-hidden />
-        <div className="absolute bottom-0 left-0 right-0 top-0 -z-10 bg-linear-to-b from-black/80 via-black/50 to-black/20" />
+      <body
+        className={`${inter.variable} ${spaceGrotesk.variable} bg-[#080A0F] text-[#F4F7FB] antialiased`}
+      >
+        {/* Ambient radial glows */}
+        <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden" aria-hidden>
+          <div className="absolute left-[-10%] top-[-10%] h-105 w-105 rounded-full bg-sky-500/18 blur-[120px]" />
+          <div className="absolute right-[-10%] top-[10%] h-105 w-105 rounded-full bg-violet-500/18 blur-[120px]" />
+          <div className="absolute bottom-[-10%] left-[35%] h-90 w-90 rounded-full bg-emerald-500/8 blur-[120px]" />
+        </div>
         <SiteHeader />
         {children}
         <Analytics />
