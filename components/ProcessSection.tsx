@@ -58,9 +58,9 @@ export function ProcessSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.09, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className={`rounded-2xl border ${borderColor} ${bgColor} p-6 transition-all duration-300 hover:-translate-y-1`}
+              className={`rounded-2xl border ${borderColor} ${bgColor} p-4 sm:p-6 transition-all duration-300 hover:-translate-y-1`}
             >
-              <p className={`text-3xl font-bold ${numColor} mb-4 font-mono`}>{number}</p>
+              <p className={`text-2xl sm:text-3xl font-bold ${numColor} mb-4 font-mono`}>{number}</p>
               <h3 className="text-base font-semibold text-[#F4F7FB] mb-2">{title}</h3>
               <p className="text-sm text-[#9BA7B7] leading-relaxed">{description}</p>
             </motion.div>

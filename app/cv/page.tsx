@@ -153,20 +153,20 @@ export default function CVPage() {
                       alt="David Kilgallon"
                       width={100}
                       height={100}
-                      className="h-24 w-24 object-cover"
+                      className="h-20 w-20 sm:h-24 sm:w-24 object-cover"
                     />
                   </div>
                 </div>
 
                 {/* Name + contact */}
                 <div className="flex-1 min-w-0">
-                  <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#F4F7FB]">
+                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[#F4F7FB]">
                     David Kilgallon
                   </h1>
                   <p className="mt-1 text-base font-semibold text-sky-400">
                     Creative Front-End Developer
                   </p>
-                  <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-[#9BA7B7]">
+                  <div className="mt-4 flex flex-wrap gap-x-3 sm:gap-x-5 gap-y-1.5 sm:gap-y-2 text-xs sm:text-sm text-[#9BA7B7]">
                     <span className="inline-flex items-center gap-1.5">
                       <MapPin className="size-3.5 shrink-0 text-sky-400/70" aria-hidden />
                       St Helens, Merseyside

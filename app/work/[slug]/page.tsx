@@ -65,13 +65,13 @@ export default async function WorkPage({ params }: Props) {
               <span className="text-xs text-[#64748B]">{project.timeline}</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-[#F4F7FB] mb-3">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#F4F7FB] mb-3">
               {project.title}
             </h1>
             <p className="text-lg text-[#9BA7B7]">{project.tagline}</p>
 
             {/* Meta row */}
-            <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3 text-sm">
+            <div className="mt-6 flex flex-wrap gap-x-4 sm:gap-x-8 gap-y-2 sm:gap-y-3 text-sm">
               <div>
                 <p className="text-xs uppercase tracking-widest text-[#64748B] mb-1">Role</p>
                 <p className="text-[#D8E0EA] text-xs leading-relaxed">{project.role}</p>
@@ -140,7 +140,7 @@ export default async function WorkPage({ params }: Props) {
             <h2 className="text-xs font-bold uppercase tracking-widest text-sky-400 mb-6">Approach</h2>
             <ol className="flex flex-col gap-5">
               {project.approach.map((item, i) => (
-                <li key={i} className="flex gap-4">
+                <li key={i} className="flex gap-3 sm:gap-4">
                   <span className="shrink-0 mt-0.5 flex h-6 w-6 items-center justify-center rounded-full border border-white/10 text-xs font-mono font-semibold text-[#64748B]">
                     {String(i + 1).padStart(2, "0")}
                   </span>
@@ -159,7 +159,7 @@ export default async function WorkPage({ params }: Props) {
               {project.features.map((feature) => (
                 <div
                   key={feature.title}
-                  className="rounded-2xl border border-white/[0.06] bg-white/[0.03] p-5"
+                  className="rounded-2xl border border-white/[0.06] bg-white/[0.03] p-4 sm:p-5"
                 >
                   <h3 className="text-sm font-semibold text-[#F4F7FB] mb-2">{feature.title}</h3>
                   <p className="text-xs text-[#9BA7B7] leading-relaxed">{feature.description}</p>
@@ -178,7 +178,7 @@ export default async function WorkPage({ params }: Props) {
 
           {/* Next project */}
           {nextProject && (
-            <div className="rounded-2xl border border-white/[0.06] bg-white/[0.03] p-6 flex items-center justify-between gap-4">
+            <div className="rounded-2xl border border-white/[0.06] bg-white/[0.03] p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
               <div>
                 <p className="text-xs text-[#64748B] uppercase tracking-widest mb-1">Next project</p>
                 <p className="text-sm font-semibold text-[#F4F7FB]">{nextProject.title}</p>
@@ -186,7 +186,7 @@ export default async function WorkPage({ params }: Props) {
               </div>
               <Link
                 href={`/work/${nextProject.slug}`}
-                className="shrink-0 inline-flex items-center gap-1.5 rounded-full border border-sky-400/30 bg-sky-400/10 px-4 py-2 text-xs font-semibold text-sky-400 transition-all hover:bg-sky-400/20"
+                className="shrink-0 w-full sm:w-auto inline-flex items-center justify-center gap-1.5 rounded-full border border-sky-400/30 bg-sky-400/10 px-4 py-2.5 text-xs font-semibold text-sky-400 transition-all hover:bg-sky-400/20"
               >
                 View <ArrowRight className="size-3.5" />
               </Link>

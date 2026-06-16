@@ -43,7 +43,7 @@ export function ContactForm() {
             type="text"
             required
             placeholder="Your name"
-            className="rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-[#F4F7FB] placeholder-[#64748B] outline-none transition-colors focus:border-sky-400/40 focus:bg-white/[0.06]"
+            className="rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-[#F4F7FB] placeholder-[#64748B] outline-none transition-colors focus:border-sky-400/40 focus:bg-white/[0.06]"
           />
         </div>
         <div className="flex flex-col gap-1.5">
@@ -56,7 +56,7 @@ export function ContactForm() {
             type="email"
             required
             placeholder="your@email.com"
-            className="rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-[#F4F7FB] placeholder-[#64748B] outline-none transition-colors focus:border-sky-400/40 focus:bg-white/[0.06]"
+            className="rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-[#F4F7FB] placeholder-[#64748B] outline-none transition-colors focus:border-sky-400/40 focus:bg-white/[0.06]"
           />
         </div>
       </div>
@@ -71,14 +71,14 @@ export function ContactForm() {
           required
           rows={4}
           placeholder="Tell me about your project or just say hi…"
-          className="rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-[#F4F7FB] placeholder-[#64748B] outline-none transition-colors focus:border-sky-400/40 focus:bg-white/[0.06] resize-none"
+          className="rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-[#F4F7FB] placeholder-[#64748B] outline-none transition-colors focus:border-sky-400/40 focus:bg-white/[0.06] resize-none"
         />
       </div>
 
       <button
         type="submit"
         disabled={pending}
-        className="mt-1 inline-flex items-center justify-center gap-2 rounded-full bg-sky-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-sky-400 hover:shadow-[0_0_24px_rgba(56,189,248,0.35)] disabled:opacity-60 disabled:cursor-not-allowed"
+        className="mt-1 w-full inline-flex items-center justify-center gap-2 rounded-full bg-sky-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-sky-400 hover:shadow-[0_0_24px_rgba(56,189,248,0.35)] disabled:opacity-60 disabled:cursor-not-allowed"
       >
         {pending ? (
           <>

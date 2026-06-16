@@ -74,14 +74,14 @@ export function ProjectCard({
 
         {/* Links */}
         {(liveUrl || repoUrl || workSlug) && (
-          <div className="flex flex-wrap gap-4 border-t border-white/[0.07] pt-4 mt-auto">
+          <div className="flex flex-wrap gap-2 sm:gap-4 border-t border-white/[0.07] pt-4 mt-auto">
             {liveUrl && (
               <a
                 href={liveUrl}
                 target="_blank"
                 rel="noreferrer"
                 aria-label={`View ${title} live site`}
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-sky-400 transition-colors hover:text-sky-300"
+                className="inline-flex items-center gap-1.5 py-1 text-sm font-medium text-sky-400 transition-colors hover:text-sky-300"
               >
                 <ExternalLink className="size-3.5" />
                 View Live
@@ -93,7 +93,7 @@ export function ProjectCard({
                 target="_blank"
                 rel="noreferrer"
                 aria-label={`View ${title} on GitHub`}
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-[#9BA7B7] transition-colors hover:text-[#F4F7FB]"
+                className="inline-flex items-center gap-1.5 py-1 text-sm font-medium text-[#9BA7B7] transition-colors hover:text-[#F4F7FB]"
               >
                 <GitHubIcon className="size-3.5" />
                 View Code

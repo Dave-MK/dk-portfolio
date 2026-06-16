@@ -15,7 +15,7 @@ export function ContactSection() {
             <p className="text-xs font-semibold uppercase tracking-widest text-sky-400 mb-4">
               Contact
             </p>
-            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-[#F4F7FB] mb-4">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#F4F7FB] mb-4">
               Let&apos;s build something useful.
             </h2>
             <p className="max-w-md mx-auto text-[#9BA7B7] text-sm sm:text-base leading-relaxed mb-10">
@@ -35,7 +35,7 @@ export function ContactSection() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="David Kilgallon on GitHub"
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-5 py-2 text-xs font-medium text-[#9BA7B7] transition-all hover:text-[#F4F7FB] hover:bg-white/[0.06]"
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-5 py-2.5 text-xs font-medium text-[#9BA7B7] transition-all hover:text-[#F4F7FB] hover:bg-white/[0.06]"
               >
                 GitHub
               </a>
@@ -44,13 +44,13 @@ export function ContactSection() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="David Kilgallon on LinkedIn"
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-5 py-2 text-xs font-medium text-[#9BA7B7] transition-all hover:text-[#F4F7FB] hover:bg-white/[0.06]"
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-5 py-2.5 text-xs font-medium text-[#9BA7B7] transition-all hover:text-[#F4F7FB] hover:bg-white/[0.06]"
               >
                 LinkedIn
               </a>
               <a
                 href="mailto:ntice.digital@gmail.com?subject=Enquiry"
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-5 py-2 text-xs font-medium text-[#9BA7B7] transition-all hover:text-[#F4F7FB] hover:bg-white/[0.06]"
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-5 py-2.5 text-xs font-medium text-[#9BA7B7] transition-all hover:text-[#F4F7FB] hover:bg-white/[0.06]"
               >
                 ntice.digital@gmail.com
               </a>

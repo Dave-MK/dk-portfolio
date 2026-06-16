@@ -25,7 +25,7 @@ export function Hero() {
               Open to opportunities
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold tracking-tight leading-[1.1] text-[#F4F7FB]">
+            <h1 className="text-3xl sm:text-4xl lg:text-[3.5rem] font-bold tracking-tight leading-[1.1] text-[#F4F7FB]">
               Creative front-end developer building{" "}
               <span className="bg-gradient-to-r from-sky-400 to-violet-400 bg-clip-text text-transparent">
                 clean, useful digital
@@ -33,42 +33,42 @@ export function Hero() {
               products.
             </h1>
 
-            <p className="text-[#9BA7B7] text-base sm:text-lg leading-relaxed max-w-xl">
+            <p className="text-[#9BA7B7] text-base sm:text-lg leading-relaxed max-w-full sm:max-w-xl">
               I combine web development, UI design, digital media, and practical problem-solving
               to build projects that are clear, usable, and visually sharp.
             </p>
 
             {/* Skill ticker */}
-            <div className="flex flex-wrap items-center gap-x-0 gap-y-1">
+            <div className="flex flex-wrap items-center gap-x-2 sm:gap-x-0 gap-y-1.5 sm:gap-y-1">
               {skills.map((skill, i) => (
                 <span key={skill} className="text-sm text-[#9BA7B7]">
                   {skill}
                   {i < skills.length - 1 && (
-                    <span className="mx-2 text-sky-400/40">·</span>
+                    <span className="hidden sm:inline mx-2 text-sky-400/40">·</span>
                   )}
                 </span>
               ))}
             </div>
 
             {/* CTA buttons */}
-            <div className="flex flex-wrap gap-3 mt-1">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3 mt-1">
               <Link
                 href="/#work"
-                className="inline-flex items-center gap-2 rounded-full bg-sky-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-sky-400 hover:shadow-[0_0_24px_rgba(56,189,248,0.35)]"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-sky-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-sky-400 hover:shadow-[0_0_24px_rgba(56,189,248,0.35)]"
               >
                 View My Work <ArrowRight className="size-4" />
               </Link>
               <a
                 href="mailto:ntice.digital@gmail.com?subject=Enquiry"
                 aria-label="Email David Kilgallon"
-                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-[#F4F7FB] transition-all hover:bg-white/10"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-[#F4F7FB] transition-all hover:bg-white/10"
               >
                 <Mail className="size-4" />
                 Contact Me
               </a>
               <Link
                 href="/cv"
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm font-medium text-[#9BA7B7] transition-all hover:text-[#F4F7FB] hover:border-white/20"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm font-medium text-[#9BA7B7] transition-all hover:text-[#F4F7FB] hover:border-white/20"
               >
                 <Download className="size-4" />
                 CV

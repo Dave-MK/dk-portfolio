@@ -62,7 +62,7 @@ export default async function BlogPostPage({ params }: Props) {
             ))}
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-[#F4F7FB] mb-6">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#F4F7FB] mb-6">
             {post.title}
           </h1>
           <p className="text-base sm:text-lg text-[#9BA7B7] mb-12 border-l-2 border-sky-400 pl-4">

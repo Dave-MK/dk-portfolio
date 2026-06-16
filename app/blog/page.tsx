@@ -19,7 +19,7 @@ export default function BlogPage() {
           <p className="text-xs font-semibold uppercase tracking-widest text-sky-400 mb-4">
             Writing
           </p>
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-[#F4F7FB] mb-4">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#F4F7FB] mb-4">
             Blog
           </h1>
           <p className="text-[#9BA7B7] text-sm sm:text-base mb-14">
@@ -31,7 +31,7 @@ export default function BlogPage() {
           ) : (
             <ul className="flex flex-col divide-y divide-white/[0.07]">
               {posts.map((post) => (
-                <li key={post.slug} className="py-10">
+                <li key={post.slug} className="py-7 sm:py-10">
                   <Link href={`/blog/${post.slug}`} className="group block">
                     <div className="flex flex-wrap items-center gap-3 mb-3 text-xs text-[#64748B] uppercase tracking-widest">
                       <time dateTime={post.date}>

@@ -2,9 +2,9 @@ import Image from "next/image";
 
 export function ProfileConsole() {
   return (
-    <div className="rounded-3xl border border-sky-400/30 bg-white/[0.04] p-6 shadow-[0_0_80px_rgba(56,189,248,0.10)] backdrop-blur-xl">
+    <div className="rounded-3xl border border-sky-400/30 bg-white/[0.04] p-4 sm:p-6 shadow-[0_0_80px_rgba(56,189,248,0.10)] backdrop-blur-xl">
       {/* Avatar + name */}
-      <div className="flex items-center gap-4 mb-5">
+      <div className="flex items-center gap-3 sm:gap-4 mb-5">
         <div className="relative h-16 w-16 shrink-0">
           <div className="absolute inset-0 rounded-full bg-gradient-to-br from-sky-400 to-violet-500 p-[2px]">
             <div className="h-full w-full overflow-hidden rounded-full bg-[#080A0F]">
@@ -53,7 +53,7 @@ export function ProfileConsole() {
       {/* Mini stats */}
       <div className="grid grid-cols-2 gap-3">
         <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
-          <p className="text-2xl font-bold text-[#F4F7FB]">3+</p>
+          <p className="text-xl sm:text-2xl font-bold text-[#F4F7FB]">3+</p>
           <p className="text-xs text-[#9BA7B7] mt-0.5">Live Apps</p>
         </div>
         <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">

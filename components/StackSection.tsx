@@ -54,7 +54,7 @@ export function StackSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.09, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
+              className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
             >
               <div className={`inline-flex items-center justify-center rounded-xl border p-2.5 mb-4 ${iconBg}`}>
                 <Icon className={`size-5 ${iconColor}`} />

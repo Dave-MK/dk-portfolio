@@ -83,7 +83,7 @@ export function SiteHeader() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden p-2 rounded-lg border border-white/10 text-[#9BA7B7] hover:text-[#F4F7FB] hover:bg-white/[0.05] transition-colors"
+            className="md:hidden p-2.5 rounded-lg border border-white/10 text-[#9BA7B7] hover:text-[#F4F7FB] hover:bg-white/[0.05] transition-colors"
             onClick={() => setMenuOpen((prev) => !prev)}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
@@ -106,7 +106,7 @@ export function SiteHeader() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setMenuOpen(false)}
-                  className="block px-4 py-3 text-sm font-medium text-[#9BA7B7] rounded-xl transition-colors hover:text-[#F4F7FB] hover:bg-white/[0.05]"
+                  className="block px-4 py-4 text-sm font-medium text-[#9BA7B7] rounded-xl transition-colors hover:text-[#F4F7FB] hover:bg-white/[0.05]"
                 >
                   {item.label}
                 </Link>
