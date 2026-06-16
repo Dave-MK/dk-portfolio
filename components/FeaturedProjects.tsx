@@ -72,7 +72,7 @@ export function FeaturedProjects({ liveApps, devApps }: Props) {
         <div id="archive" className="mt-20 scroll-mt-20">
           <FadeUp>
             <div className="mb-8">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#64748B] mb-1.5">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[#7B8CA0] mb-1.5">
                 Earlier builds
               </p>
               <h3 className="text-xl font-semibold text-[#D8E0EA]">Development &amp; Archive</h3>

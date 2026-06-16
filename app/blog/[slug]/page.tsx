@@ -39,12 +39,12 @@ export default async function BlogPostPage({ params }: Props) {
         <article className="mx-auto max-w-3xl">
           <Link
             href="/blog"
-            className="text-sm text-[#64748B] hover:text-[#9BA7B7] transition-colors mb-10 inline-block"
+            className="text-sm text-[#7B8CA0] hover:text-[#9BA7B7] transition-colors mb-10 inline-block"
           >
             ← Back to blog
           </Link>
 
-          <div className="flex flex-wrap items-center gap-3 mt-6 mb-4 text-xs text-[#64748B] uppercase tracking-widest">
+          <div className="flex flex-wrap items-center gap-3 mt-6 mb-4 text-xs text-[#7B8CA0] uppercase tracking-widest">
             <time dateTime={post.date}>
               {new Date(post.date).toLocaleDateString("en-GB", {
                 year: "numeric",

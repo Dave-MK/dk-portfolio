@@ -153,6 +153,7 @@ export default function CVPage() {
                       alt="David Kilgallon"
                       width={100}
                       height={100}
+                      sizes="(min-width: 640px) 96px, 80px"
                       className="h-20 w-20 sm:h-24 sm:w-24 object-cover"
                     />
                   </div>
@@ -312,7 +313,7 @@ export default function CVPage() {
                             <Calendar className="size-3 shrink-0" aria-hidden />
                             {job.period}
                           </p>
-                          <p className="text-[10px] text-[#64748B] mt-0.5">{job.type}</p>
+                          <p className="text-[10px] text-[#7B8CA0] mt-0.5">{job.type}</p>
                         </div>
                       </div>
                       <ul className="space-y-1.5 text-xs text-[#9BA7B7] leading-relaxed list-disc list-inside marker:text-sky-400/40">

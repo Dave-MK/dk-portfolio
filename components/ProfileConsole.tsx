@@ -13,6 +13,7 @@ export function ProfileConsole() {
                 alt="David Kilgallon"
                 width={64}
                 height={64}
+                sizes="64px"
                 className="h-full w-full object-cover"
                 priority
               />
@@ -30,20 +31,20 @@ export function ProfileConsole() {
       {/* Status info */}
       <div className="flex flex-col gap-4 text-sm mb-5">
         <div>
-          <span className="text-[#64748B] text-xs uppercase tracking-wider">Current focus</span>
+          <span className="text-[#7B8CA0] text-xs uppercase tracking-wider">Current focus</span>
           <p className="text-[#D8E0EA] mt-1 text-xs leading-relaxed">
             Building practical web apps with clean UI and real-world use cases.
           </p>
         </div>
         <div>
-          <span className="text-[#64748B] text-xs uppercase tracking-wider">Status</span>
+          <span className="text-[#7B8CA0] text-xs uppercase tracking-wider">Status</span>
           <div className="mt-1 flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
             <p className="text-[#D8E0EA] text-xs">Open to remote front-end / creative technology roles</p>
           </div>
         </div>
         <div>
-          <span className="text-[#64748B] text-xs uppercase tracking-wider">Location</span>
+          <span className="text-[#7B8CA0] text-xs uppercase tracking-wider">Location</span>
           <p className="text-[#D8E0EA] mt-1 text-xs">St Helens, Merseyside, UK</p>
         </div>
       </div>

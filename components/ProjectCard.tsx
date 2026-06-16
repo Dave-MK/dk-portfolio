@@ -102,7 +102,7 @@ export function ProjectCard({
             {workSlug && (
               <Link
                 href={`/work/${workSlug}`}
-                className="ml-auto inline-flex items-center gap-1 text-xs font-medium text-[#64748B] transition-colors hover:text-[#9BA7B7]"
+                className="ml-auto inline-flex items-center gap-1 text-xs font-medium text-[#7B8CA0] transition-colors hover:text-[#9BA7B7]"
               >
                 Case study →
               </Link>

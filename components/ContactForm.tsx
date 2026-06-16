@@ -43,7 +43,7 @@ export function ContactForm() {
             type="text"
             required
             placeholder="Your name"
-            className="rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-[#F4F7FB] placeholder-[#64748B] outline-none transition-colors focus:border-sky-400/40 focus:bg-white/[0.06]"
+            className="rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-[#F4F7FB] placeholder-[#7B8CA0] outline-none transition-colors focus:border-sky-400/40 focus:bg-white/[0.06]"
           />
         </div>
         <div className="flex flex-col gap-1.5">
@@ -56,7 +56,7 @@ export function ContactForm() {
             type="email"
             required
             placeholder="your@email.com"
-            className="rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-[#F4F7FB] placeholder-[#64748B] outline-none transition-colors focus:border-sky-400/40 focus:bg-white/[0.06]"
+            className="rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-[#F4F7FB] placeholder-[#7B8CA0] outline-none transition-colors focus:border-sky-400/40 focus:bg-white/[0.06]"
           />
         </div>
       </div>
@@ -71,7 +71,7 @@ export function ContactForm() {
           required
           rows={4}
           placeholder="Tell me about your project or just say hi…"
-          className="rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-[#F4F7FB] placeholder-[#64748B] outline-none transition-colors focus:border-sky-400/40 focus:bg-white/[0.06] resize-none"
+          className="rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-[#F4F7FB] placeholder-[#7B8CA0] outline-none transition-colors focus:border-sky-400/40 focus:bg-white/[0.06] resize-none"
         />
       </div>
 

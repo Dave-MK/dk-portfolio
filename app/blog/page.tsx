@@ -33,7 +33,7 @@ export default function BlogPage() {
               {posts.map((post) => (
                 <li key={post.slug} className="py-7 sm:py-10">
                   <Link href={`/blog/${post.slug}`} className="group block">
-                    <div className="flex flex-wrap items-center gap-3 mb-3 text-xs text-[#64748B] uppercase tracking-widest">
+                    <div className="flex flex-wrap items-center gap-3 mb-3 text-xs text-[#7B8CA0] uppercase tracking-widest">
                       <time dateTime={post.date}>
                         {new Date(post.date).toLocaleDateString("en-GB", {
                           year: "numeric",

@@ -48,7 +48,7 @@ export default async function WorkPage({ params }: Props) {
           {/* Back */}
           <Link
             href="/#work"
-            className="inline-flex items-center gap-1.5 text-sm text-[#64748B] hover:text-[#9BA7B7] transition-colors mb-10"
+            className="inline-flex items-center gap-1.5 text-sm text-[#7B8CA0] hover:text-[#9BA7B7] transition-colors mb-10"
           >
             <ArrowLeft className="size-3.5" />
             Back to work
@@ -62,7 +62,7 @@ export default async function WorkPage({ params }: Props) {
               <span className={`rounded-full border px-2.5 py-0.5 text-xs font-medium ${statusStyles[project.status]}`}>
                 {project.status}
               </span>
-              <span className="text-xs text-[#64748B]">{project.timeline}</span>
+              <span className="text-xs text-[#7B8CA0]">{project.timeline}</span>
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#F4F7FB] mb-3">
@@ -73,11 +73,11 @@ export default async function WorkPage({ params }: Props) {
             {/* Meta row */}
             <div className="mt-6 flex flex-wrap gap-x-4 sm:gap-x-8 gap-y-2 sm:gap-y-3 text-sm">
               <div>
-                <p className="text-xs uppercase tracking-widest text-[#64748B] mb-1">Role</p>
+                <p className="text-xs uppercase tracking-widest text-[#7B8CA0] mb-1">Role</p>
                 <p className="text-[#D8E0EA] text-xs leading-relaxed">{project.role}</p>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-widest text-[#64748B] mb-1">Stack</p>
+                <p className="text-xs uppercase tracking-widest text-[#7B8CA0] mb-1">Stack</p>
                 <div className="flex flex-wrap gap-1">
                   {project.tech.map((t) => (
                     <span
@@ -141,7 +141,7 @@ export default async function WorkPage({ params }: Props) {
             <ol className="flex flex-col gap-5">
               {project.approach.map((item, i) => (
                 <li key={i} className="flex gap-3 sm:gap-4">
-                  <span className="shrink-0 mt-0.5 flex h-6 w-6 items-center justify-center rounded-full border border-white/10 text-xs font-mono font-semibold text-[#64748B]">
+                  <span className="shrink-0 mt-0.5 flex h-6 w-6 items-center justify-center rounded-full border border-white/10 text-xs font-mono font-semibold text-[#7B8CA0]">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <p className="text-[#9BA7B7] text-sm leading-relaxed">{item}</p>
@@ -180,7 +180,7 @@ export default async function WorkPage({ params }: Props) {
           {nextProject && (
             <div className="rounded-2xl border border-white/[0.06] bg-white/[0.03] p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
               <div>
-                <p className="text-xs text-[#64748B] uppercase tracking-widest mb-1">Next project</p>
+                <p className="text-xs text-[#7B8CA0] uppercase tracking-widest mb-1">Next project</p>
                 <p className="text-sm font-semibold text-[#F4F7FB]">{nextProject.title}</p>
                 <p className="text-xs text-[#9BA7B7]">{nextProject.tagline}</p>
               </div>

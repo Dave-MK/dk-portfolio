@@ -30,6 +30,7 @@ export function AboutSection() {
                   alt="David Kilgallon"
                   width={600}
                   height={700}
+                  sizes="(min-width: 1024px) 560px, 100vw"
                   className="w-full h-auto object-cover"
                 />
               </div>
