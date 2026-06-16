@@ -5,6 +5,46 @@ import { getGithubPagesProjects } from "@/lib/github";
 import { getVercelProjects } from "@/lib/vercel";
 import Image from "next/image";
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://davidkilgallon.dev/#person",
+      name: "David Kilgallon",
+      url: "https://davidkilgallon.dev",
+      description:
+        "Software developer with a creative background in digital media, building web projects that combine clean code, visual design, and practical problem-solving.",
+      image: "https://davidkilgallon.dev/images/profile-pic.webp",
+      sameAs: [
+        "https://www.linkedin.com/in/david-kilgallon/",
+        "https://github.com/Dave-MK",
+        "https://www.youtube.com/@ntice.digital",
+      ],
+      knowsAbout: [
+        "Web Development",
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "3D Design",
+        "Motion Design",
+        "UI/UX Design",
+        "Digital Media",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://davidkilgallon.dev/#website",
+      url: "https://davidkilgallon.dev",
+      name: "David Kilgallon Portfolio",
+      description:
+        "Portfolio of David Kilgallon — software developer and creative technologist.",
+      author: { "@id": "https://davidkilgallon.dev/#person" },
+    },
+  ],
+};
+
 export default async function HomePage() {
   let liveApps: PortfolioProject[] = [];
   let appsInDevelopment: PortfolioProject[] = [];
@@ -23,16 +63,20 @@ export default async function HomePage() {
 
   return (
     <main className="min-h-screen relative z-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <section className="flex max-w-6xl justify-around items-center h-screen mx-auto px-4">
         <Image
           className="rounded-full w-70 h-70 z-10 -mt-40 lg:inline-block hidden transform -rotate-8"
           src="/images/profile-pic.webp"
-          alt="Profile Picture"
+          alt="David Kilgallon — software developer and creative technologist"
           width="200"
           height="200"
           loading="eager"
         />
-        <section className="mx-auto max-w-4xl h-screen flex flex-col items-start justify-center px-4">
+        <div className="mx-auto max-w-4xl h-screen flex flex-col items-start justify-center px-4">
           <div className="mb-12 -mt-20 max-w-3xl flex flex-col items-start gap-6">
             <p className="text-sm font-medium uppercase tracking-widest">
               Portfolio
@@ -45,30 +89,33 @@ export default async function HomePage() {
             </h1>
             <CyclingSkills />
             <p className="mt-6 text-sm sm:text-xl leading-8">
-              Aspiring software developer with a creative background in digital
-              media, building web projects that combine clean code, visual
-              design, and practical problem-solving.
+              Software developer with a creative background in digital media,
+              building web projects that combine clean code, visual design, and
+              practical problem-solving.
             </p>
             <div className="flex items-center justify-center gap-3">
-              <h2 className="text-xs sm:text-xl">
+              <p className="text-xs sm:text-xl">
                 Let&apos;s connect...
-              </h2>
+              </p>
               <a
-              href="https://www.linkedin.com/in/david-kilgallon/"
-              className="font-medium underline underline-offset-4"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Image
-                className="inline w-8 h-8 sm:w-12 sm:h-12 ml-4"
-                src="/images/linkedin-app-icon.svg"
-                alt="LinkedIn Icon"
-                width="0"
-                height="0"
-              />
-            </a>
+                href="https://www.linkedin.com/in/david-kilgallon/"
+                aria-label="David Kilgallon on LinkedIn"
+                className="font-medium underline underline-offset-4"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Image
+                  className="inline w-8 h-8 sm:w-12 sm:h-12 ml-4"
+                  src="/images/linkedin-app-icon.svg"
+                  alt=""
+                  aria-hidden="true"
+                  width={48}
+                  height={48}
+                />
+              </a>
               <a
                 href="https://github.com/Dave-MK"
+                aria-label="David Kilgallon on GitHub"
                 className="font-medium underline underline-offset-4"
                 target="_blank"
                 rel="noreferrer"
@@ -76,9 +123,10 @@ export default async function HomePage() {
                 <Image
                   className="inline w-8 h-8 sm:w-12 sm:h-12"
                   src="/images/github-white-icon.svg"
-                  alt="GitHub Icon"
-                  width="0"
-                  height="0"
+                  alt=""
+                  aria-hidden="true"
+                  width={48}
+                  height={48}
                 />
               </a>
               <a
@@ -89,13 +137,15 @@ export default async function HomePage() {
                 <Image
                   className="inline w-8 h-8 sm:w-14 sm:h-14"
                   src="/images/gmail-icon.svg"
-                  alt="Email Icon"
-                  width="0"
-                  height="0"
+                  alt=""
+                  aria-hidden="true"
+                  width={56}
+                  height={56}
                 />
               </a>
               <a
                 href="https://www.youtube.com/@ntice.digital"
+                aria-label="David Kilgallon on YouTube"
                 target="_blank"
                 rel="noreferrer"
                 className="font-medium underline underline-offset-4"
@@ -103,14 +153,15 @@ export default async function HomePage() {
                 <Image
                   className="inline w-8 h-8 sm:w-16 sm:h-16"
                   src="/images/youtube-color-icon.svg"
-                  alt="YouTube Icon"
-                  width="0"
-                  height="0"
+                  alt=""
+                  aria-hidden="true"
+                  width={64}
+                  height={64}
                 />
               </a>
             </div>
           </div>
-        </section>
+        </div>
       </section>
       <div className="absolute top-85 w-full h-150 bg-linear-to-t from-cyan-600/70 via-cyan-600/30 to-cyan-100/0 -z-5 animate-pulse animation-duration-3000" />
       <section className="z-5 w-full pt-8 bg-background sm:px-6 xs:px-4 border-t border-cyan-500/45">
@@ -156,6 +207,7 @@ export default async function HomePage() {
           <div className="mt-6 flex flex-wrap gap-3 text-xl items-center justify-center">
             <a
               href="https://github.com/Dave-MK"
+              aria-label="David Kilgallon on GitHub"
               className="font-medium underline underline-offset-4"
               target="_blank"
               rel="noreferrer"
@@ -163,9 +215,10 @@ export default async function HomePage() {
               <Image
                 className="inline w-8 h-8 sm:w-12 sm:h-12"
                 src="/images/github-white-icon.svg"
-                alt="GitHub Icon"
-                width="0"
-                height="0"
+                alt=""
+                aria-hidden="true"
+                width={48}
+                height={48}
               />
             </a>
             <a
@@ -176,13 +229,15 @@ export default async function HomePage() {
               <Image
                 className="w-10 h-10"
                 src="/images/email-envelope-white-icon.svg"
-                alt="Email Icon"
-                width="0"
-                height="0"
+                alt=""
+                aria-hidden="true"
+                width={40}
+                height={40}
               />
             </a>
             <a
               href="https://www.linkedin.com/in/david-kilgallon/"
+              aria-label="David Kilgallon on LinkedIn"
               className="font-medium underline underline-offset-4"
               target="_blank"
               rel="noreferrer"
@@ -190,23 +245,26 @@ export default async function HomePage() {
               <Image
                 className="w-10 h-10"
                 src="/images/linkedin-app-white-icon.svg"
-                alt="LinkedIn Icon"
-                width="0"
-                height="0"
+                alt=""
+                aria-hidden="true"
+                width={40}
+                height={40}
               />
             </a>
             <a
               href="https://www.youtube.com/@ntice.digital"
+              aria-label="David Kilgallon on YouTube"
               target="_blank"
               rel="noreferrer"
-              className="text-md font-medium underline underline-offset-4"
+              className="font-medium underline underline-offset-4"
             >
               <Image
                 className="w-10 h-10"
                 src="/images/youtube-app-white-icon.svg"
-                alt="YouTube Icon"
-                width="0"
-                height="0"
+                alt=""
+                aria-hidden="true"
+                width={40}
+                height={40}
               />
             </a>
           </div>

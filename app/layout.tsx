@@ -17,11 +17,72 @@ const arOneSans = AR_One_Sans({
   display: "swap",
 });
 
+const SITE_URL = "https://davidkilgallon.dev";
+const OG_IMAGE = "/images/og-image.png";
+
 export const metadata: Metadata = {
-  title: "David Kilgallon | Portfolio",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "David Kilgallon | Portfolio",
+    template: "%s | David Kilgallon",
+  },
   description:
-    "Portfolio of David Kilgallon, featuring web development, creative technology, 3D, motion design, and digital media projects.",
-  metadataBase: new URL("https://davidkilgallon.dev"),
+    "Portfolio of David Kilgallon — aspiring software developer with a creative background in digital media, building web projects that combine clean code, visual design, and practical problem-solving.",
+  keywords: [
+    "David Kilgallon",
+    "portfolio",
+    "web developer",
+    "software developer",
+    "Next.js",
+    "React",
+    "creative technology",
+    "3D",
+    "motion design",
+    "digital media",
+    "UI/UX",
+    "Tailwind CSS",
+    "TypeScript",
+  ],
+  authors: [{ name: "David Kilgallon", url: SITE_URL }],
+  creator: "David Kilgallon",
+  openGraph: {
+    type: "website",
+    locale: "en_GB",
+    url: SITE_URL,
+    siteName: "David Kilgallon Portfolio",
+    title: "David Kilgallon | Portfolio",
+    description:
+      "Software developer with a creative background in digital media, building web projects that combine clean code, visual design, and practical problem-solving.",
+    images: [
+      {
+        url: OG_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: "David Kilgallon — Software Developer Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "David Kilgallon | Portfolio",
+    description:
+      "Software developer with a creative background in digital media, building web projects that combine clean code, visual design, and practical problem-solving.",
+    images: [OG_IMAGE],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: SITE_URL,
+  },
 };
 
 export default function RootLayout({
