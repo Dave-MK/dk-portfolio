@@ -36,8 +36,8 @@ export const featuredProjects: FeaturedProject[] = [
     liveUrl: "https://filefettle.pro",
     repoUrl: "https://github.com/Dave-MK/file-fettle",
     workSlug: "file-fettle",
-    accentFrom: "from-teal-500",
-    accentTo: "to-violet-400",
+    accentFrom: "from-orange-700",
+    accentTo: "to-orange-400",
   },
   {
     id: "readfit",
