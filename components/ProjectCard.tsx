@@ -37,9 +37,9 @@ export function ProjectCard({
   accentTo = "to-violet-500",
 }: ProjectCardProps) {
   return (
-    <article className="group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition-all duration-300 hover:-translate-y-1 hover:border-sky-400/25 hover:bg-white/[0.055] hover:shadow-[0_8px_30px_rgba(56,189,248,0.07)]">
+    <article className="group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/3 transition-all duration-300 hover:-translate-y-1 hover:border-sky-400/25 hover:bg-white/5.5 hover:shadow-[0_8px_30px_rgba(56,189,248,0.07)]">
       {featured && (
-        <div className={`h-[3px] w-full bg-gradient-to-r ${accentFrom} ${accentTo} opacity-70`} />
+        <div className={`h-0.75 w-full bg-linear-to-r ${accentFrom} ${accentTo} opacity-70`} />
       )}
 
       <div className="flex flex-1 flex-col p-6">

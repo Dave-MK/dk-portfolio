@@ -43,7 +43,7 @@ export function FeaturedProjects({ liveApps, devApps }: Props) {
 
   return (
     <section id="work" className="py-24 px-4 sm:px-6 scroll-mt-20">
-      <div className="mx-auto max-w-[1240px]">
+      <div className="mx-auto max-w-310">
         {/* Heading row */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
           <FadeUp>

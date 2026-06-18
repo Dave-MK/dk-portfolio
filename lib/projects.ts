@@ -26,6 +26,20 @@ export type ArchiveProject = {
 
 export const featuredProjects: FeaturedProject[] = [
   {
+    id: "file-fettle",
+    title: "File Fettle",
+    tagline: "Convert and compress files in the browser",
+    description:
+      "File Fettle is a web app that allows users to convert and compress files directly in the browser, without the need for server-side processing.",
+    status: "Live",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "WebAssembly", "ffmpeg.wasm"],
+    liveUrl: "https://filefettle.pro",
+    repoUrl: "https://github.com/Dave-MK/file-fettle",
+    workSlug: "file-fettle",
+    accentFrom: "from-teal-500",
+    accentTo: "to-violet-400",
+  },
+  {
     id: "readfit",
     title: "ReadFit",
     tagline: "Personalised reading comfort tool",
