@@ -16,7 +16,7 @@ const skills = [
 export function Hero() {
   return (
     <section className="relative pt-28 pb-16 px-4 sm:px-6 min-h-[calc(100vh-72px)] flex items-center">
-      <div className="mx-auto w-full max-w-[1040px]">
+      <div className="mx-auto w-full max-w-260">
         <div className="grid lg:grid-cols-[1fr_360px] gap-10 lg:gap-12 items-center">
           {/* Left */}
           <FadeUp className="flex flex-col gap-7">
@@ -26,16 +26,18 @@ export function Hero() {
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-[3.5rem] font-bold tracking-tight leading-[1.1] text-[#F4F7FB]">
-              Creative front-end developer building{" "}
-              <span className="bg-gradient-to-r from-sky-400 to-violet-400 bg-clip-text text-transparent">
-                clean, useful digital
+              Creative Front-End Developer Building{" "}
+              <span className="bg-linear-to-r from-sky-400 to-violet-400 bg-clip-text text-transparent">
+                Modern Digital
               </span>{" "}
               products.
             </h1>
 
             <p className="text-[#9BA7B7] text-base sm:text-lg leading-relaxed max-w-full sm:max-w-xl">
-              I combine web development, UI design, digital media, and practical problem-solving
-              to build projects that are clear, usable, and visually sharp.
+              Former SharePoint Developer with experience across enterprise systems, 
+              digital media and product design. Building responsive web applications, 
+              workflow tools and user-focused digital experiences with React, Next.js 
+              and TypeScript.
             </p>
 
             {/* Skill ticker */}

@@ -6,7 +6,7 @@ import { FadeUp } from "@/components/FadeUp";
 export function AboutSection() {
   return (
     <section id="about" className="py-24 px-4 sm:px-6 scroll-mt-20">
-      <div className="mx-auto max-w-[1240px]">
+      <div className="mx-auto max-w-310">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Profile image */}
           <FadeUp className="relative order-2 lg:order-1">
@@ -21,9 +21,9 @@ export function AboutSection() {
               aria-hidden
             />
             {/* Glow behind image */}
-            <div className="pointer-events-none absolute -inset-4 rounded-3xl bg-gradient-to-br from-sky-500/10 via-violet-500/8 to-transparent blur-2xl" aria-hidden />
+            <div className="pointer-events-none absolute -inset-4 rounded-3xl bg-linear-to-br from-sky-500/10 via-violet-500/8 to-transparent blur-2xl" aria-hidden />
             {/* Gradient border wrapper */}
-            <div className="relative p-[1.5px] rounded-3xl bg-gradient-to-br from-sky-400/40 via-violet-400/20 to-transparent">
+            <div className="relative p-[1.5px] rounded-3xl bg-linear-to-br from-sky-400/40 via-violet-400/20 to-transparent">
               <div className="overflow-hidden rounded-3xl">
                 <Image
                   src="/images/profile-pic.webp"
@@ -47,16 +47,16 @@ export function AboutSection() {
             </div>
             <div className="space-y-4 text-[#9BA7B7] text-sm sm:text-base leading-relaxed">
               <p>
-                Based in St Helens, Merseyside. My background is in digital media, design,
-                video, and visual storytelling.
+                I&apos;m a developer, designer and problem-solver with a background spanning enterprise systems, digital media and business technology.
               </p>
               <p>
-                I&apos;m now focused on building web apps that combine clean code, strong UI,
-                and practical real-world ideas.
+                My career began in business systems development, where I worked on SharePoint solutions, workflow automation and internal applications. More recently I&apos;ve focused on modern web development, building applications with React, Next.js and TypeScript while continuing to expand my technical skills.
               </p>
               <p>
-                I&apos;m especially interested in projects that make information clearer,
-                workflows easier, or digital tools more accessible.
+                What makes my background different is the combination of development, design and business experience. I enjoy creating products that not only work well technically but are intuitive, engaging and genuinely useful for the people using them.
+              </p>
+              <p>
+                I&apos;m particularly interested in SaaS products, workflow platforms, AI-powered tools and digital experiences that solve real-world problems.
               </p>
             </div>
             <div className="mt-8 flex flex-col sm:flex-row gap-2 sm:gap-3">
