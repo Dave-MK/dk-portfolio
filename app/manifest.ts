@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "David Kilgallon | Portfolio",
     short_name: "DK Portfolio",
     description:
-      "Portfolio of David Kilgallon — software developer specialising in web development, creative technology, 3D, and motion design.",
+      "Portfolio of David Kilgallon — creative front-end developer based in St Helens, UK. React, Next.js, TypeScript, UI design.",
     start_url: "/",
     display: "standalone",
     background_color: "#07090e",

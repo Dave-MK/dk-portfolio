@@ -12,6 +12,7 @@ export type BlogPost = {
   description: string;
   tags: string[];
   content: string;
+  readingTime: number;
 };
 
 export type BlogPostMeta = Omit<BlogPost, "content">;
@@ -31,13 +32,18 @@ export function getPostBySlug(slug: string): BlogPost | null {
   const raw = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(raw);
 
+  const parsedContent = String(marked.parse(content));
+  const wordCount = content.replace(/[#\-*`>[\]()]/g, "").split(/\s+/).filter(Boolean).length;
+  const readingTime = Math.max(1, Math.round(wordCount / 200));
+
   return {
     slug,
     title: data.title ?? slug,
     date: data.date ?? "",
     description: data.description ?? "",
     tags: data.tags ?? [],
-    content: String(marked.parse(content)),
+    content: parsedContent,
+    readingTime,
   };
 }
 

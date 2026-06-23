@@ -9,18 +9,21 @@ import { getGithubPagesProjects } from "@/lib/github";
 import { getVercelProjects } from "@/lib/vercel";
 import type { PortfolioProject } from "@/lib/types";
 
+const SITE_URL = "https://davidkilgallon.dev";
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Person",
-      "@id": "https://davidkilgallon.dev/#person",
+      "@id": `${SITE_URL}/#person`,
       name: "David Kilgallon",
-      url: "https://davidkilgallon.dev",
+      url: SITE_URL,
       jobTitle: "Creative Front-End Developer",
       description:
-        "Creative front-end developer building clean, useful digital products. Web development, UI design, digital media, and practical problem-solving.",
-      image: "https://davidkilgallon.dev/images/profile-pic.webp",
+        "Creative front-end developer based in St Helens, Merseyside. Building clean, useful digital products with React, Next.js, TypeScript, and Tailwind CSS.",
+      image: `${SITE_URL}/images/profile-pic.webp`,
+      email: "ntice.digital@gmail.com",
       sameAs: [
         "https://www.linkedin.com/in/david-kilgallon/",
         "https://github.com/Dave-MK",
@@ -32,9 +35,11 @@ const jsonLd = {
         "TypeScript",
         "Tailwind CSS",
         "UI Design",
+        "Web Accessibility",
         "Digital Media",
         "Motion Design",
         "Figma",
+        "Responsive Web Design",
       ],
       address: {
         "@type": "PostalAddress",
@@ -42,14 +47,30 @@ const jsonLd = {
         addressRegion: "Merseyside",
         addressCountry: "GB",
       },
+      seeks: {
+        "@type": "Demand",
+        name: "Front-End Developer role",
+        description: "Open to remote front-end developer roles, creative technology projects, and freelance web work in the UK.",
+      },
     },
     {
       "@type": "WebSite",
-      "@id": "https://davidkilgallon.dev/#website",
-      url: "https://davidkilgallon.dev",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: "David Kilgallon — Creative Front-End Developer",
+      description:
+        "Portfolio of David Kilgallon — creative front-end developer based in St Helens, UK. React, Next.js, TypeScript, UI design.",
+      author: { "@id": `${SITE_URL}/#person` },
+      inLanguage: "en-GB",
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": `${SITE_URL}/#profile`,
+      url: SITE_URL,
       name: "David Kilgallon Portfolio",
-      description: "Creative front-end developer portfolio.",
-      author: { "@id": "https://davidkilgallon.dev/#person" },
+      about: { "@id": `${SITE_URL}/#person` },
+      mainEntity: { "@id": `${SITE_URL}/#person` },
+      isPartOf: { "@id": `${SITE_URL}/#website` },
     },
   ],
 };

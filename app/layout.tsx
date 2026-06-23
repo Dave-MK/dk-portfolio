@@ -27,18 +27,19 @@ export const metadata: Metadata = {
     template: "%s | David Kilgallon",
   },
   description:
-    "Creative front-end developer building clean, useful digital products. Portfolio of David Kilgallon — web development, UI design, digital media, and creative technology.",
+    "Creative front-end developer based in St Helens, UK. Portfolio of David Kilgallon — building clean, useful digital products with React, Next.js, TypeScript, and Tailwind CSS.",
   keywords: [
     "David Kilgallon",
-    "portfolio",
     "front-end developer",
-    "web developer",
-    "creative technology",
-    "Next.js",
-    "React",
-    "TypeScript",
+    "creative front-end developer",
+    "React developer",
+    "Next.js developer",
+    "TypeScript developer",
     "UI design",
-    "digital media",
+    "web developer UK",
+    "front-end developer Merseyside",
+    "freelance web developer",
+    "portfolio",
     "Tailwind CSS",
     "St Helens",
     "Merseyside",
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
     siteName: "David Kilgallon Portfolio",
     title: "David Kilgallon | Creative Front-End Developer",
     description:
-      "Creative front-end developer building clean, useful digital products. Web development, UI design, digital media.",
+      "Creative front-end developer based in St Helens, UK — React, Next.js, TypeScript, UI design.",
     images: [
       {
         url: OG_IMAGE,

@@ -7,6 +7,8 @@ import { Footer } from "@/components/Footer";
 
 type Props = { params: Promise<{ slug: string }> };
 
+const SITE_URL = "https://davidkilgallon.dev";
+
 export async function generateStaticParams() {
   return getAllWorkSlugs().map((slug) => ({ slug }));
 }
@@ -15,14 +17,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const project = getWorkProject(slug);
   if (!project) return {};
+  const url = `${SITE_URL}/work/${slug}`;
   return {
-    title: project.title,
+    title: `${project.title} — Case Study`,
     description: project.overview.slice(0, 160),
-    alternates: { canonical: `https://davidkilgallon.dev/work/${slug}` },
+    keywords: [...project.tech, project.title, "David Kilgallon", "case study", "front-end developer"],
+    authors: [{ name: "David Kilgallon", url: SITE_URL }],
+    alternates: { canonical: url },
     openGraph: {
       title: `${project.title} — David Kilgallon`,
       description: project.tagline,
       type: "article",
+      url,
+      siteName: "David Kilgallon Portfolio",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} — David Kilgallon`,
+      description: project.tagline,
     },
   };
 }
@@ -39,9 +51,36 @@ export default async function WorkPage({ params }: Props) {
   if (!project) notFound();
 
   const nextProject = project.nextSlug ? getWorkProject(project.nextSlug) : null;
+  const url = `${SITE_URL}/work/${slug}`;
+
+  const projectLd = {
+    "@context": "https://schema.org",
+    "@type": project.liveUrl ? "SoftwareApplication" : "CreativeWork",
+    name: project.title,
+    description: project.overview.slice(0, 200),
+    url: project.liveUrl ?? url,
+    applicationCategory: "WebApplication",
+    operatingSystem: "Web",
+    author: { "@type": "Person", "@id": `${SITE_URL}/#person`, name: "David Kilgallon" },
+    programmingLanguage: project.tech,
+    ...(project.liveUrl && { installUrl: project.liveUrl }),
+    ...(project.repoUrl && { codeRepository: project.repoUrl }),
+  };
+
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Work", item: `${SITE_URL}/#work` },
+      { "@type": "ListItem", position: 3, name: project.title, item: url },
+    ],
+  };
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(projectLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <main className="min-h-screen pt-28 pb-20 px-4 sm:px-6">
         <div className="mx-auto max-w-3xl">
 
@@ -192,6 +231,19 @@ export default async function WorkPage({ params }: Props) {
               </Link>
             </div>
           )}
+
+          {/* From the blog */}
+          <div className="mt-14 pt-10 border-t border-white/[0.07]">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#7B8CA0] mb-3">
+              From the blog
+            </p>
+            <Link
+              href="/blog"
+              className="group inline-flex items-center gap-1.5 text-sm font-medium text-sky-400 hover:text-sky-300 transition-colors"
+            >
+              Read writing on development and design <ArrowRight className="size-3.5" />
+            </Link>
+          </div>
 
         </div>
       </main>
