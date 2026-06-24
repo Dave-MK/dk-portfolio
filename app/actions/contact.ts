@@ -38,8 +38,7 @@ export async function sendContactEmail(
     const resend = new Resend(process.env.RESEND_API_KEY);
 
     await resend.emails.send({
-      // Update `from` to your verified Resend domain once set up
-      from: "Portfolio Contact <contact@resend.dev>",
+      from: "Portfolio Contact <contact@davidkilgallon.dev>",
       to: "ntice.digital@gmail.com",
       replyTo: email,
       subject: `Portfolio enquiry from ${name}`,
