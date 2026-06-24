@@ -39,7 +39,7 @@ export async function sendContactEmail(
 
     await resend.emails.send({
       // Update `from` to your verified Resend domain once set up
-      from: "Portfolio Contact <onboarding@resend.dev>",
+      from: "Portfolio Contact <contact@resend.dev>",
       to: "ntice.digital@gmail.com",
       replyTo: email,
       subject: `Portfolio enquiry from ${name}`,
