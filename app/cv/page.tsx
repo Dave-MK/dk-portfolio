@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { MapPin, Mail, Globe, GitBranch, Link, Calendar, ExternalLink, Youtube } from "lucide-react";
+import { MapPin, Mail, Globe, GitBranch, Link, Calendar, ExternalLink, Play } from "lucide-react";
 import { PrintButton } from "@/components/PrintButton";
 import { Footer } from "@/components/Footer";
 
@@ -352,7 +352,7 @@ export default function CVPage() {
                                 rel="noreferrer"
                                 className="no-print inline-flex items-center gap-0.5 text-[10px] text-[#7B8CA0] hover:text-sky-400 transition-colors"
                               >
-                                <Youtube className="size-3" aria-hidden />
+                                <Play className="size-3" aria-hidden />
                                 youtube
                               </a>
                             )}
