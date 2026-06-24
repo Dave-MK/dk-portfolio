@@ -1,107 +1,158 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { MapPin, Mail, Globe, GitBranch, Link, Calendar, ExternalLink } from "lucide-react";
+import { MapPin, Mail, Globe, GitBranch, Link, Calendar, ExternalLink, Youtube } from "lucide-react";
 import { PrintButton } from "@/components/PrintButton";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "CV",
   description:
-    "Curriculum vitae of David Kilgallon — Creative Front-End Developer based in St Helens, Merseyside.",
+    "Curriculum vitae of David Kilgallon — Front-End Developer with commercial SharePoint experience, based in Merseyside, UK.",
   robots: { index: true, follow: true },
   alternates: { canonical: "https://davidkilgallon.dev/cv" },
 };
 
-const frontEndSkills = [
-  "HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Next.js",
-  "Tailwind CSS", "Responsive Design", "Component-based Dev", "Accessibility",
-  "Git & GitHub", "Vercel", "REST APIs", "SharePoint 365", "Power Automate",
-];
-
-const designSkills = [
-  "UI Layout", "Branding", "Adobe Premiere Pro", "Illustrator",
-  "After Effects", "Motion Graphics", "Video Editing",
-];
-
-const professionalSkills = [
-  "Problem Solving", "Attention to Detail", "Self-directed Learning",
-  "Creative Thinking", "Written Communication", "Time Management",
-];
-
-const tools = [
-  "VS Code", "GitHub", "Vercel", "Chrome DevTools",
-  "Adobe CC", "Blender", "Canva", "Google Analytics",
-  "Microsoft Office", "Google Workspace",
+const skillGroups = [
+  {
+    label: "Frontend",
+    category: "Front-End Development",
+    skills: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS"],
+  },
+  {
+    label: "Development",
+    category: "Dev Tooling",
+    skills: ["Git", "GitHub", "REST APIs", "VS Code", "Chrome DevTools"],
+  },
+  {
+    label: "Cloud & Backend",
+    category: "Cloud & Backend",
+    skills: ["Vercel", "Supabase", "Firebase", "Clerk", "Python", "SQL"],
+  },
+  {
+    label: "Microsoft",
+    category: "Microsoft Technologies",
+    skills: ["SharePoint 2010/365", "Power Automate", "Power Apps"],
+  },
+  {
+    label: "Professional",
+    category: "Professional Skills",
+    skills: ["Requirements Gathering", "Stakeholder Management", "Business Analysis", "Project Delivery"],
+  },
+  {
+    label: "Creative",
+    category: "Creative Tools",
+    skills: ["Adobe Premiere Pro", "Adobe Illustrator", "After Effects", "Blender"],
+  },
 ];
 
 const experience = [
   {
-    title: "Owner / Creative Lead",
+    title: "Founder & Creative Technologist",
     company: "NTICE DIGITAL",
-    period: "Mar 2024 – Apr 2026",
+    companyUrl: "https://youtube.com/@ntice.digital",
+    period: "March 2024 – Present",
     type: "Self-employed",
+    summary:
+      "Founded and operate a digital media and creative technology business delivering branding, content production and digital communication solutions.",
     bullets: [
-      "Founded and led NTICE DIGITAL, delivering web development and digital content services.",
-      "Designed and built client-facing web projects using Next.js, React, TypeScript, and Tailwind CSS.",
-      "Managed brand identity, UI design, and content production for multiple clients.",
-      "Delivered motion graphics, video editing, and digital media using Adobe Creative Cloud.",
-      "Handled full project lifecycle: scoping, client communication, and delivery.",
+      "Create digital content including video, graphics and social media campaigns",
+      "Develop brand identities and visual communication strategies",
+      "Build and maintain websites and digital platforms",
+      "Produce motion graphics and multimedia content using Adobe Creative Suite",
+      "Develop modern web applications using React, Next.js and TypeScript",
     ],
   },
   {
-    title: "Key Account Manager / Business Development",
+    title: "Key Account Manager & Business Development",
     company: "Glass Futures",
+    companyUrl: null,
     period: "2022 – 2024",
     type: "Full-time",
+    summary:
+      "Supported business development, stakeholder engagement and membership activities within an innovation-focused organisation.",
     bullets: [
-      "Managed key accounts and built relationships with international research consortium members.",
-      "Contributed to business development strategy, tender preparation, and stakeholder reporting.",
-      "Produced internal communications, presentations, and data reporting.",
-      "Translated complex technical research outputs into accessible commercial communications.",
+      "Managed relationships with stakeholders, partners and member organisations",
+      "Supported business development and membership growth initiatives",
+      "Maintained CRM records and business data",
+      "Assisted reporting, analysis and engagement activities",
+      "Coordinated communication between internal and external stakeholders",
     ],
   },
   {
-    title: "ECM Analyst / SharePoint Developer & Administrator",
+    title: "Glass Wool Manufacturing Operator",
+    company: "Saint-Gobain",
+    companyUrl: null,
+    period: "2018 – 2022",
+    type: "Full-time",
+    summary:
+      "Worked the hot end and cold end of a production line, manufacturing glass wool insulation as part of a continuous process.",
+    bullets: [
+      "Machine maintenance and monitoring live production data and trends",
+      "Maintaining the smooth running of the production process",
+    ],
+  },
+  {
+    title: "ECM Analyst & SharePoint Developer",
     company: "Pilkington NSG",
+    companyUrl: null,
     period: "2015 – 2018",
     type: "Full-time",
+    summary:
+      "Designed, developed and supported SharePoint solutions to improve business processes and workflow efficiency.",
     bullets: [
-      "Developed and maintained SharePoint 2010 and SharePoint 365 environments for global teams.",
-      "Built custom workflows and automations to improve document management processes.",
-      "Trained users and created documentation for internal SharePoint tools.",
-      "Collaborated with IT and operations to scope and deploy digital solutions.",
+      "Delivered SharePoint solutions from requirements gathering through deployment",
+      "Developed SharePoint workflows, forms and automated business processes",
+      "Built SharePoint 365 and Power Automate solutions",
+      "Provided application support and issue resolution within SLA targets",
+      "Worked directly with stakeholders to deliver technical solutions",
     ],
   },
 ];
 
 const projects = [
   {
-    title: "Personal Portfolio Website",
-    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel API", "GitHub API"],
-    url: "https://davidkilgallon.dev",
+    title: "FileFettle",
+    tech: ["Next.js", "React", "TypeScript", "Supabase"],
+    url: "https://filefettle.pro",
+    githubUrl: "https://github.com/dave-mk/file-fettle",
     description:
-      "Full dark-studio portfolio with dynamic project data from Vercel and GitHub APIs, blog functionality, SEO, structured data, and PWA manifest.",
+      "Document organisation and workflow platform designed to help users manage, categorise and automate interactions with digital files.",
+    bullets: [
+      "Built using React, Next.js and TypeScript",
+      "Designed responsive document management interfaces",
+      "Developed reusable component architecture",
+      "Integrated cloud-based services and backend tooling",
+      "Deployed using GitHub and Vercel",
+    ],
   },
   {
     title: "ReadFit",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    tech: ["Next.js", "React", "TypeScript"],
     url: "https://readfit.vercel.app",
+    githubUrl: "https://github.com/dave-mk/readfit",
     description:
-      "A reading companion app providing AI-assisted book analysis and structured reading plans to help users engage more deeply with non-fiction.",
+      "Personalised reading experience platform designed to help users identify text layouts and formatting preferences that improve reading comfort and focus.",
+    bullets: [
+      "Built interactive user assessment workflows",
+      "Developed responsive interfaces across desktop and mobile",
+      "Applied accessibility and readability principles",
+      "Structured for future user accounts and personalised recommendations",
+      "Deployed using GitHub and Vercel",
+    ],
   },
   {
-    title: "Signalibrium",
-    tech: ["TypeScript", "Dashboard UI", "Product Design"],
-    url: null,
+    title: "Developer Portfolio Platform",
+    tech: ["Next.js", "React", "TypeScript"],
+    url: "https://davidkilgallon.dev",
+    githubUrl: "https://github.com/dave-mk/dk-portfolio",
     description:
-      "A productivity and signal management dashboard concept designed to surface the right information at the right time and reduce cognitive load.",
-  },
-  {
-    title: "Rune Master",
-    tech: ["React", "Next.js", "TypeScript", "Game Design"],
-    url: null,
-    description:
-      "An interactive web game exploring rune-based puzzle mechanics. Currently in active development.",
+      "Portfolio platform showcasing development projects, technical skills and creative work.",
+    bullets: [
+      "Integrated GitHub project data for dynamic content",
+      "Built reusable components and responsive layouts",
+      "Implemented modern deployment workflows",
+      "Focused on performance, accessibility and maintainable code",
+    ],
   },
 ];
 
@@ -165,12 +216,12 @@ export default function CVPage() {
                     David Kilgallon
                   </h1>
                   <p className="mt-1 text-base font-semibold text-sky-400">
-                    Creative Front-End Developer
+                    Front-End Developer &nbsp;|&nbsp; Former SharePoint Developer
                   </p>
                   <div className="mt-4 flex flex-wrap gap-x-3 sm:gap-x-5 gap-y-1.5 sm:gap-y-2 text-xs sm:text-sm text-[#9BA7B7]">
                     <span className="inline-flex items-center gap-1.5">
                       <MapPin className="size-3.5 shrink-0 text-sky-400/70" aria-hidden />
-                      St Helens, Merseyside
+                      Merseyside, UK
                     </span>
                     <a
                       href="mailto:davidmkilgallon@gmail.com"
@@ -195,7 +246,7 @@ export default function CVPage() {
                       className="inline-flex items-center gap-1.5 hover:text-[#F4F7FB] transition-colors"
                     >
                       <GitBranch className="size-3.5 shrink-0 text-sky-400/70" aria-hidden />
-                      github.com/Dave-MK
+                      github.com/dave-mk
                     </a>
                     <a
                       href="https://linkedin.com/in/david-kilgallon/"
@@ -215,14 +266,24 @@ export default function CVPage() {
           {/* Profile */}
           <section className="cv-card cv-section mb-6 rounded-3xl border border-white/[0.06] bg-white/[0.03] p-6 sm:p-8">
             <SectionLabel>Profile</SectionLabel>
-            <SectionTitle>About Me</SectionTitle>
-            <p className="text-[#9BA7B7] leading-relaxed text-sm sm:text-base">
-              Creative front-end developer with a background in digital media, design, and business development.
-              Founder of NTICE DIGITAL. I combine strong visual instincts with practical engineering to build
-              web products that are clean, fast, and genuinely useful. Experienced with modern JavaScript
-              frameworks, UI design systems, and end-to-end digital delivery. Always learning — particularly
-              interested in projects that make information clearer or workflows more human.
-            </p>
+            <SectionTitle>Professional Summary</SectionTitle>
+            <div className="space-y-3 text-[#9BA7B7] leading-relaxed text-sm sm:text-base">
+              <p>
+                Front-End Developer with commercial experience delivering SharePoint-based business
+                solutions, workflow automation and internal applications within enterprise environments.
+                Combines technical problem-solving with experience across software development,
+                digital media, stakeholder engagement and business systems.
+              </p>
+              <p>
+                Builds modern web applications using React, Next.js, TypeScript and Tailwind CSS,
+                with a focus on usability, maintainability and user-centred design.
+              </p>
+              <p>
+                Seeking a Front-End Developer or Junior Software Developer role where I can contribute
+                technical, creative and business-focused skills while continuing to grow as a software
+                engineer.
+              </p>
+            </div>
           </section>
 
           {/* Two-column: sidebar (skills) + main (experience/projects) */}
@@ -231,58 +292,34 @@ export default function CVPage() {
             {/* Sidebar */}
             <aside className="cv-sidebar flex flex-col gap-6">
 
+              {/* Skills by category */}
               <div className="cv-card cv-section rounded-3xl border border-white/[0.06] bg-white/[0.03] p-6">
                 <SectionLabel>Technical</SectionLabel>
-                <SectionTitle>Front-End Skills</SectionTitle>
-                <div className="flex flex-wrap gap-1.5">
-                  {frontEndSkills.map((s) => <SkillPill key={s} label={s} />)}
+                <SectionTitle>Key Skills</SectionTitle>
+                <div className="flex flex-col gap-4">
+                  {skillGroups.map((group) => (
+                    <div key={group.label}>
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-sky-400/70 mb-1.5">
+                        {group.category}
+                      </p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {group.skills.map((s) => <SkillPill key={s} label={s} />)}
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              <div className="cv-card cv-section rounded-3xl border border-white/[0.06] bg-white/[0.03] p-6">
-                <SectionLabel>Creative</SectionLabel>
-                <SectionTitle>Design & Digital</SectionTitle>
-                <div className="flex flex-wrap gap-1.5">
-                  {designSkills.map((s) => <SkillPill key={s} label={s} />)}
-                </div>
-              </div>
-
-              <div className="cv-card cv-section rounded-3xl border border-white/[0.06] bg-white/[0.03] p-6">
-                <SectionLabel>Transferable</SectionLabel>
-                <SectionTitle>Professional</SectionTitle>
-                <div className="flex flex-wrap gap-1.5">
-                  {professionalSkills.map((s) => <SkillPill key={s} label={s} />)}
-                </div>
-              </div>
-
+              {/* Education */}
               <div className="cv-card cv-section rounded-3xl border border-white/[0.06] bg-white/[0.03] p-6">
                 <SectionLabel>Education</SectionLabel>
                 <SectionTitle>Qualifications</SectionTitle>
                 <div>
                   <h3 className="text-sm font-bold text-[#F4F7FB]">Edge Hill University</h3>
                   <p className="text-xs text-[#9BA7B7] mt-1">
-                    BA/BSc Business, Management &amp; Marketing
+                    BA/BSc (Hons) Business Management
                   </p>
-                  <p className="text-xs text-sky-400 mt-1">2:1 Degree &middot; 2007–2012</p>
-                </div>
-              </div>
-
-              <div className="cv-card cv-section rounded-3xl border border-white/[0.06] bg-white/[0.03] p-6">
-                <SectionLabel>Continuous</SectionLabel>
-                <SectionTitle>Learning</SectionTitle>
-                <ul className="space-y-2 text-xs text-[#9BA7B7] leading-relaxed list-disc list-inside marker:text-sky-400/60">
-                  <li>Self-directed study: HTML, CSS, JS, React, Next.js, TypeScript</li>
-                  <li>IBM SkillsBuild — digital, data &amp; technology programmes</li>
-                  <li>Continued learning in Python, SQL &amp; data analytics</li>
-                  <li>Deploying full-stack portfolio projects via GitHub &amp; Vercel</li>
-                </ul>
-              </div>
-
-              <div className="cv-card cv-section rounded-3xl border border-white/[0.06] bg-white/[0.03] p-6">
-                <SectionLabel>Tooling</SectionLabel>
-                <SectionTitle>Software</SectionTitle>
-                <div className="flex flex-wrap gap-1.5">
-                  {tools.map((t) => <SkillPill key={t} label={t} />)}
+                  <p className="text-xs text-sky-400 mt-1">Grade: 2:1</p>
                 </div>
               </div>
 
@@ -294,7 +331,7 @@ export default function CVPage() {
               {/* Experience */}
               <div className="cv-card cv-section rounded-3xl border border-white/[0.06] bg-white/[0.03] p-6 sm:p-8">
                 <SectionLabel>Career</SectionLabel>
-                <SectionTitle>Experience</SectionTitle>
+                <SectionTitle>Employment History</SectionTitle>
                 <div className="flex flex-col gap-8">
                   {experience.map((job, idx) => (
                     <div key={job.company} className="cv-job cv-exp-card relative pl-5 border-l-2 border-sky-400/30">
@@ -303,10 +340,23 @@ export default function CVPage() {
                         className="no-print absolute -left-[5px] top-[3px] h-2 w-2 rounded-full bg-sky-400 ring-4 ring-[#080A0F]"
                         aria-hidden
                       />
-                      <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
+                      <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
                         <div>
                           <h3 className="text-sm font-bold text-[#F4F7FB] leading-snug">{job.title}</h3>
-                          <p className="text-xs font-semibold text-sky-400 mt-0.5">{job.company}</p>
+                          <div className="flex items-center gap-1.5 mt-0.5">
+                            <p className="text-xs font-semibold text-sky-400">{job.company}</p>
+                            {job.companyUrl && (
+                              <a
+                                href={job.companyUrl}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="no-print inline-flex items-center gap-0.5 text-[10px] text-[#7B8CA0] hover:text-sky-400 transition-colors"
+                              >
+                                <Youtube className="size-3" aria-hidden />
+                                youtube
+                              </a>
+                            )}
+                          </div>
                         </div>
                         <div className="text-right shrink-0">
                           <p className="text-xs text-[#9BA7B7] inline-flex items-center gap-1">
@@ -316,6 +366,7 @@ export default function CVPage() {
                           <p className="text-[10px] text-[#7B8CA0] mt-0.5">{job.type}</p>
                         </div>
                       </div>
+                      <p className="text-xs text-[#7B8CA0] leading-relaxed mb-2 italic">{job.summary}</p>
                       <ul className="space-y-1.5 text-xs text-[#9BA7B7] leading-relaxed list-disc list-inside marker:text-sky-400/40">
                         {job.bullets.map((b, i) => <li key={i}>{b}</li>)}
                       </ul>
@@ -330,7 +381,7 @@ export default function CVPage() {
               {/* Projects */}
               <div className="cv-card cv-section rounded-3xl border border-white/[0.06] bg-white/[0.03] p-6 sm:p-8">
                 <SectionLabel>Portfolio</SectionLabel>
-                <SectionTitle>Projects</SectionTitle>
+                <SectionTitle>Products &amp; Development Projects</SectionTitle>
                 <div className="flex flex-col gap-4">
                   {projects.map((project) => (
                     <div
@@ -338,23 +389,43 @@ export default function CVPage() {
                       className="cv-job rounded-xl border border-white/[0.05] bg-white/[0.02] p-4 transition-colors hover:border-sky-400/15"
                     >
                       <div className="flex items-start justify-between gap-2 mb-1.5">
-                        <h3 className="text-sm font-bold text-[#F4F7FB]">{project.title}</h3>
-                        {project.url && (
-                          <a
-                            href={project.url}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="no-print shrink-0 inline-flex items-center gap-1 text-[10px] text-sky-400 hover:text-sky-300 transition-colors"
-                          >
-                            <ExternalLink className="size-3" aria-hidden />
-                            Live
-                          </a>
-                        )}
+                        <div>
+                          <h3 className="text-sm font-bold text-[#F4F7FB]">{project.title}</h3>
+                          <div className="flex flex-wrap gap-x-2 mt-0.5">
+                            {project.tech.map((t) => (
+                              <span key={t} className="text-[10px] text-sky-400/80">{t}</span>
+                            ))}
+                          </div>
+                        </div>
+                        <div className="no-print flex items-center gap-2 shrink-0">
+                          {project.url && (
+                            <a
+                              href={project.url}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="inline-flex items-center gap-1 text-[10px] text-sky-400 hover:text-sky-300 transition-colors"
+                            >
+                              <ExternalLink className="size-3" aria-hidden />
+                              Live
+                            </a>
+                          )}
+                          {project.githubUrl && (
+                            <a
+                              href={project.githubUrl}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="inline-flex items-center gap-1 text-[10px] text-[#7B8CA0] hover:text-[#F4F7FB] transition-colors"
+                            >
+                              <GitBranch className="size-3" aria-hidden />
+                              GitHub
+                            </a>
+                          )}
+                        </div>
                       </div>
-                      <p className="text-xs text-[#9BA7B7] leading-relaxed mb-2.5">{project.description}</p>
-                      <div className="flex flex-wrap gap-1">
-                        {project.tech.map((t) => <SkillPill key={t} label={t} />)}
-                      </div>
+                      <p className="text-xs text-[#9BA7B7] leading-relaxed mb-2">{project.description}</p>
+                      <ul className="space-y-1 text-xs text-[#7B8CA0] leading-relaxed list-disc list-inside marker:text-sky-400/30">
+                        {project.bullets.map((b, i) => <li key={i}>{b}</li>)}
+                      </ul>
                     </div>
                   ))}
                 </div>
