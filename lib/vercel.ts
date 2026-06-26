@@ -4,6 +4,10 @@ type VercelProjectSummary = {
     id: string;
 };
 
+type VercelProjectsListResponse = {
+    projects: VercelProjectSummary[];
+};
+
 type VercelProjectResponse = {
     id: string;
     name: string;
@@ -32,7 +36,7 @@ type GitHubRepoResponse = {
 
 const vercelToken = process.env.VERCEL_TOKEN;
 const vercelTeamId = process.env.VERCEL_TEAM_ID;
-const vercelTeamSlug = process.env.VERCEL_TEAM_SLUG ?? "david-mk";
+const vercelTeamSlug = process.env.VERCEL_TEAM_SLUG;
 const githubToken = process.env.GITHUB_TOKEN;
 
 const vercelHeaders: HeadersInit = {
@@ -215,7 +219,7 @@ export async function getVercelProjects(): Promise<PortfolioProject[]> {
 
     const accountParams = getVercelAccountParams();
 
-    const projects = await fetchFromVercel<VercelProjectSummary[]>(
+    const { projects } = await fetchFromVercel<VercelProjectsListResponse>(
         "/v10/projects",
         accountParams
     );
