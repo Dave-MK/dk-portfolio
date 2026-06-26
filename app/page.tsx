@@ -7,6 +7,7 @@ import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
 import { getGithubPagesProjects } from "@/lib/github";
 import { getVercelProjects } from "@/lib/vercel";
+import { featuredProjects } from "@/lib/projects";
 import type { PortfolioProject } from "@/lib/types";
 
 const SITE_URL = "https://davidkilgallon.dev";
@@ -77,7 +78,7 @@ const jsonLd = {
 
 export default async function HomePage() {
   let liveApps: PortfolioProject[] = [];
-  let devApps: PortfolioProject[] = [];
+  let githubApps: PortfolioProject[] = [];
 
   try {
     liveApps = await getVercelProjects();
@@ -86,10 +87,32 @@ export default async function HomePage() {
   }
 
   try {
-    devApps = await getGithubPagesProjects();
+    githubApps = await getGithubPagesProjects();
   } catch (error) {
     console.error(error);
   }
+
+  // Normalise a URL for dedup comparison (strip trailing slash, lowercase)
+  const normalise = (url: string) => url.replace(/\/$/, "").toLowerCase();
+
+  // URLs already shown as featured cards — exclude from archive
+  const featuredUrls = new Set(featuredProjects.map((p) => normalise(p.liveUrl)));
+
+  // Vercel projects not already featured → show in archive
+  const unFeaturedVercel = liveApps.filter(
+    (app) => app.homepageUrl && !featuredUrls.has(normalise(app.homepageUrl))
+  );
+
+  // GitHub repos with homepage set, deduped against Vercel archive entries
+  const vercelUrls = new Set(unFeaturedVercel.map((a) => normalise(a.homepageUrl ?? "")));
+  const uniqueGithub = githubApps.filter(
+    (app) =>
+      app.homepageUrl &&
+      !featuredUrls.has(normalise(app.homepageUrl)) &&
+      !vercelUrls.has(normalise(app.homepageUrl))
+  );
+
+  const devApps = [...unFeaturedVercel, ...uniqueGithub];
 
   return (
     <>
