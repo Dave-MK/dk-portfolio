@@ -26,20 +26,6 @@ export type ArchiveProject = {
 
 export const featuredProjects: FeaturedProject[] = [
   {
-    id: "faicer",
-    title: "FAICER",
-    tagline: "AI compliance and education platform for SMEs",
-    description:
-      "FAICER is an AI-powered platform designed to help small and medium-sized enterprises navigate regulatory compliance and provide educational resources.",
-    status: "Live",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "WebAssembly", "ffmpeg.wasm"],
-    liveUrl: "https://faicer.site",
-    repoUrl: "https://github.com/Dave-MK/faicer",
-    workSlug: "faicer",
-    accentFrom: "from-teal-700",
-    accentTo: "to-blue-400",
-  },
-  {
     id: "file-fettle",
     title: "File Fettle",
     tagline: "Convert and compress files in the browser",
