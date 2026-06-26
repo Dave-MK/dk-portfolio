@@ -3,13 +3,27 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { FadeUp } from "@/components/FadeUp";
 import { AnimatedProjectGrid } from "@/components/AnimatedProjectGrid";
 import { featuredProjects, archiveProjects } from "@/lib/projects";
-import type { ProjectStatus } from "@/lib/projects";
+import type { FeaturedProject, ProjectStatus } from "@/lib/projects";
 import type { PortfolioProject } from "@/lib/types";
 
 type Props = {
   liveApps: PortfolioProject[];
+  autoLiveApps: PortfolioProject[];
   devApps: PortfolioProject[];
 };
+
+const AUTO_ACCENTS: Array<{ from: string; to: string }> = [
+  { from: "from-rose-600",   to: "to-pink-400" },
+  { from: "from-amber-600",  to: "to-yellow-400" },
+  { from: "from-indigo-600", to: "to-blue-400" },
+  { from: "from-lime-600",   to: "to-green-400" },
+  { from: "from-fuchsia-600",to: "to-violet-400" },
+  { from: "from-cyan-600",   to: "to-sky-400" },
+];
+
+function formatName(name: string): string {
+  return name.replace(/[-_]/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+}
 
 function enrichLiveUrl(id: string, liveApps: PortfolioProject[], fallback: string): string {
   const match = liveApps.find(
@@ -18,7 +32,7 @@ function enrichLiveUrl(id: string, liveApps: PortfolioProject[], fallback: strin
   return match?.homepageUrl ?? fallback;
 }
 
-export function FeaturedProjects({ liveApps, devApps }: Props) {
+export function FeaturedProjects({ liveApps, autoLiveApps, devApps }: Props) {
   const enrichedFeatured = featuredProjects.map((p) => ({
     ...p,
     liveUrl: enrichLiveUrl(p.id, liveApps, p.liveUrl),
@@ -26,14 +40,33 @@ export function FeaturedProjects({ liveApps, devApps }: Props) {
     featured: true,
   }));
 
+  // Auto-discovered Vercel projects rendered as live cards
+  const autoFeatured: (FeaturedProject & { featured: true })[] = autoLiveApps.map((app, idx) => {
+    const accent = AUTO_ACCENTS[idx % AUTO_ACCENTS.length];
+    const tagline = app.description ?? "Live project";
+    return {
+      id: app.id,
+      title: formatName(app.name),
+      tagline,
+      description: app.description ?? "Deployed via Vercel.",
+      status: "Live" as ProjectStatus,
+      tech: app.language ? [app.language] : [],
+      liveUrl: app.homepageUrl ?? "#",
+      repoUrl: app.repositoryUrl ?? undefined,
+      accentFrom: accent.from,
+      accentTo: accent.to,
+      featured: true,
+    };
+  });
+
+  const allLiveCards = [...enrichedFeatured, ...autoFeatured];
+
   const archiveDisplay =
     devApps.length > 0
       ? devApps.map((app) => ({
           id: app.id,
-          title: app.name
-            .replace(/-/g, " ")
-            .replace(/\b\w/g, (c) => c.toUpperCase()),
-          description: app.description ?? "GitHub Pages project.",
+          title: formatName(app.name),
+          description: app.description ?? "Work in progress.",
           status: "In Development" as ProjectStatus,
           tech: app.language ? [app.language] : [],
           liveUrl: app.homepageUrl,
@@ -64,7 +97,7 @@ export function FeaturedProjects({ liveApps, devApps }: Props) {
 
         {/* Featured cards */}
         <AnimatedProjectGrid
-          projects={enrichedFeatured}
+          projects={allLiveCards}
           className="grid gap-5 md:grid-cols-2 lg:grid-cols-3"
         />
 

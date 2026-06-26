@@ -112,7 +112,7 @@ export default async function HomePage() {
       !vercelUrls.has(normalise(app.homepageUrl))
   );
 
-  const devApps = [...unFeaturedVercel, ...uniqueGithub];
+  const devApps = [...uniqueGithub];
 
   return (
     <>
@@ -122,7 +122,7 @@ export default async function HomePage() {
       />
       <main>
         <Hero />
-        <FeaturedProjects liveApps={liveApps} devApps={devApps} />
+        <FeaturedProjects liveApps={liveApps} autoLiveApps={unFeaturedVercel} devApps={devApps} />
         <StackSection />
         <ProcessSection />
         <AboutSection />
