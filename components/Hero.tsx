@@ -3,6 +3,11 @@ import { ArrowRight, Mail, Download } from "lucide-react";
 import { ProfileConsole } from "@/components/ProfileConsole";
 import { FadeUp } from "@/components/FadeUp";
 
+type HeroProps = {
+  liveCount: number;
+  projectCount: number;
+};
+
 const skills = [
   "React",
   "TypeScript",
@@ -13,7 +18,7 @@ const skills = [
   "Product Thinking",
 ];
 
-export function Hero() {
+export function Hero({ liveCount, projectCount }: HeroProps) {
   return (
     <section className="relative pt-28 pb-16 px-4 sm:px-6 min-h-[calc(100vh-72px)] flex items-center">
       <div className="mx-auto w-full max-w-260">
@@ -80,7 +85,7 @@ export function Hero() {
 
           {/* Right: profile console */}
           <FadeUp delay={0.15} className="w-full">
-            <ProfileConsole />
+            <ProfileConsole liveCount={liveCount} projectCount={projectCount} />
           </FadeUp>
         </div>
       </div>

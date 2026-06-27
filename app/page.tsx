@@ -7,7 +7,7 @@ import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
 import { getGithubPagesProjects } from "@/lib/github";
 import { getVercelProjects } from "@/lib/vercel";
-import { featuredProjects } from "@/lib/projects";
+import { featuredProjects, archiveProjects } from "@/lib/projects";
 import type { PortfolioProject } from "@/lib/types";
 
 const SITE_URL = "https://davidkilgallon.dev";
@@ -114,6 +114,9 @@ export default async function HomePage() {
 
   const devApps = [...uniqueGithub];
 
+  const liveCount = featuredProjects.length + unFeaturedVercel.length;
+  const projectCount = liveCount + devApps.length + archiveProjects.length;
+
   return (
     <>
       <script
@@ -121,7 +124,7 @@ export default async function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <main>
-        <Hero />
+        <Hero liveCount={liveCount} projectCount={projectCount} />
         <FeaturedProjects liveApps={liveApps} autoLiveApps={unFeaturedVercel} devApps={devApps} />
         <StackSection />
         <ProcessSection />

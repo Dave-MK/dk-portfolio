@@ -1,6 +1,11 @@
 import Image from "next/image";
 
-export function ProfileConsole() {
+type Props = {
+  liveCount: number;
+  projectCount: number;
+};
+
+export function ProfileConsole({ liveCount, projectCount }: Props) {
   return (
     <div className="rounded-3xl border border-sky-400/30 bg-white/4 p-4 sm:p-6 shadow-[0_0_80px_rgba(56,189,248,0.10)] backdrop-blur-xl">
       {/* Avatar + name */}
@@ -54,11 +59,11 @@ export function ProfileConsole() {
       {/* Mini stats */}
       <div className="grid grid-cols-2 gap-3">
         <div className="rounded-xl border border-white/10 bg-white/3 p-3">
-          <p className="text-xl sm:text-2xl font-bold text-[#F4F7FB]">3+</p>
+          <p className="text-xl sm:text-2xl font-bold text-[#F4F7FB]">{liveCount}+</p>
           <p className="text-xs text-[#9BA7B7] mt-0.5">Live Apps</p>
         </div>
         <div className="rounded-xl border border-white/10 bg-white/3 p-3">
-          <p className="text-2xl font-bold text-[#F4F7FB]">10+</p>
+          <p className="text-2xl font-bold text-[#F4F7FB]">{projectCount}+</p>
           <p className="text-xs text-[#9BA7B7] mt-0.5">Projects</p>
         </div>
         <div className="rounded-xl border border-white/10 bg-white/3 p-3">
