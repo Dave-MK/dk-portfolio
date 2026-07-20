@@ -15,7 +15,7 @@ The truth is more mundane and more interesting. AI has changed *where* I spend m
 
 My main tools are **Claude** for reasoning, drafting, and reviewing code, and **GitHub Copilot** for in-editor autocomplete. They serve different purposes and I treat them differently.
 
-Copilot is ambient. It fills in boilerplate, completes patterns it recognises, and saves me from typing things I already know. I accept about a third of its suggestions. The rest I ignore or actively work against.
+Copilot is ambient. It fills in boilerplate, completes patterns it recognises, and saves me from typing things I already know.
 
 Claude is deliberate. I go to it with specific questions, specific problems, or specific documents I want to think through out loud. It's closer to a senior colleague I can ask a dumb question to at 11pm than to a code generator.
 

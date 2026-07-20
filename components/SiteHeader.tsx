@@ -2,17 +2,14 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ArrowRight, Braces, Menu, X } from "lucide-react";
+import { ArrowRight, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Logo } from "@/components/Logo";
 
 const navItems = [
-  { href: "/#work", label: "Work" },
-  { href: "/#stack", label: "Stack" },
-  { href: "/#process", label: "Process" },
-  { href: "/#about", label: "About" },
+  { href: "/", label: "Home" },
   { href: "/blog", label: "Blog" },
   { href: "/cv", label: "CV" },
-  { href: "/#contact", label: "Contact" },
 ];
 
 export function SiteHeader() {
@@ -51,13 +48,10 @@ export function SiteHeader() {
             className="flex items-center gap-2.5 shrink-0 group"
             aria-label="David Kilgallon — home"
           >
-            <div className="flex items-center justify-center w-8 h-8 rounded-lg border border-sky-400/30 bg-sky-400/10 transition-colors group-hover:bg-sky-400/20">
-              <Braces className="size-4 text-sky-400" />
-            </div>
+            <Logo className="w-8 h-8 rounded-lg transition-shadow group-hover:shadow-[0_0_16px_rgba(56,189,248,0.3)]" />
             <span className="hidden sm:inline text-sm font-semibold text-[#F4F7FB] tracking-tight">
               David Kilgallon
             </span>
-            <span className="sm:hidden text-sm font-bold text-[#F4F7FB]">DK</span>
           </Link>
 
           {/* Desktop nav */}
@@ -75,10 +69,10 @@ export function SiteHeader() {
 
           {/* Desktop CTA */}
           <Link
-            href="/#work"
+            href="/#contact"
             className="hidden md:inline-flex items-center gap-1.5 rounded-full border border-sky-400/30 bg-sky-400/10 px-4 py-1.5 text-xs font-semibold text-sky-400 transition-all hover:bg-sky-400/20 shrink-0"
           >
-            View Projects <ArrowRight className="size-3" />
+            Contact <ArrowRight className="size-3" />
           </Link>
 
           {/* Mobile hamburger */}

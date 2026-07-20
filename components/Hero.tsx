@@ -60,7 +60,7 @@ export function Hero({ liveCount, projectCount }: HeroProps) {
             {/* CTA buttons */}
             <div className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3 mt-1">
               <Link
-                href="/#work"
+                href="#work"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-sky-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-sky-400 hover:shadow-[0_0_24px_rgba(56,189,248,0.35)]"
               >
                 View My Work <ArrowRight className="size-4" />

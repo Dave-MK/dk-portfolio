@@ -136,6 +136,15 @@
   }
 }
 
+/* Hide scrollbar (used by the discipline switcher on small screens) */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 /* Blog prose */
 .prose-blog h2 {
   font-family: var(--font-heading), ui-sans-serif, system-ui, sans-serif;

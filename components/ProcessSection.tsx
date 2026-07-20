@@ -9,7 +9,7 @@ const steps = [
     number: "01",
     title: "Understand",
     description:
-      "I start by understanding the user, the goal, and the clearest path through the product.",
+      "I start by identifying the problem. I then work backwards, planning the cleanest and safest route to a solution and how this looks for a user.",
     numColor: "text-sky-400",
     borderColor: "border-sky-400/20",
     bgColor: "bg-sky-400/[0.04]",
@@ -46,7 +46,7 @@ const steps = [
 export function ProcessSection() {
   return (
     <section id="process" className="py-24 px-4 sm:px-6 scroll-mt-20">
-      <div className="mx-auto max-w-[1240px]">
+      <div className="mx-auto max-w-310">
         <FadeUp className="mb-12">
           <SectionHeading label="Process" heading="How I build" />
         </FadeUp>
