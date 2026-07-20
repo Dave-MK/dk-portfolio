@@ -9,9 +9,9 @@ const SITE_URL = "https://davidkilgallon.dev";
 const discipline = getDiscipline("3d");
 
 export const metadata: Metadata = {
-  title: "3D Art & Motion",
+  title: "3D Art & Motion Graphics",
   description:
-    "3D portfolio of David Kilgallon — models, renders and animations, from product visuals to concept work.",
+    "3D and motion graphics portfolio of David Kilgallon — models, renders, animations and logo reveals, from product visuals to concept work.",
   alternates: { canonical: `${SITE_URL}/3d` },
 };
 
@@ -28,9 +28,9 @@ export default function ThreeDPage() {
             <p className="text-xs font-semibold uppercase tracking-widest text-violet-400 mb-1.5">
               Motion
             </p>
-            <h2 className="text-xl font-semibold text-[#D8E0EA]">Animations &amp; Renders</h2>
+            <h2 className="text-xl font-semibold text-[#D8E0EA]">Animations &amp; Motion Graphics</h2>
             <p className="mt-1.5 text-sm text-[#9BA7B7]">
-              Animated pieces, motion loops and render reels.
+              Animated pieces, motion graphics and render reels.
             </p>
           </div>
           <MediaGallery

@@ -54,13 +54,13 @@ export const disciplines: Discipline[] = [
   {
     slug: "3d",
     href: "/3d",
-    label: "3D",
-    short: "3D",
-    eyebrow: "3D Art",
-    title: "3D Art & Motion",
-    blurb: "Models, renders and animations — a gallery of 3D visuals and motion.",
+    label: "3D and MoGraph",
+    short: "3D & MoGraph",
+    eyebrow: "3D & MoGraph",
+    title: "3D Art & Motion Graphics",
+    blurb: "Models, renders, animations and motion graphics — a gallery of 3D visuals and motion.",
     description:
-      "Modelling, texturing, lighting and animation. A combined gallery of rendered stills and animated pieces, from product visuals to concept work.",
+      "Modelling, texturing, lighting, animation and motion graphics. A combined gallery of rendered stills and animated pieces, from product visuals to logo reveals and concept work.",
     accentFrom: "from-violet-500",
     accentTo: "to-fuchsia-400",
     accentText: "text-violet-400",
@@ -92,7 +92,7 @@ export function getDiscipline(slug: DisciplineSlug): Discipline {
    instagram.com/ntice.digital. `aspect` drives the tile shape.
    Items with neither `youtubeId` nor `src` render as placeholders. */
 
-export type MediaAspect = "video" | "square" | "portrait" | "landscape";
+export type MediaAspect = "video" | "square" | "portrait" | "landscape" | "reel";
 export type MediaKind = "video" | "photo" | "model";
 
 export type MediaItem = {
@@ -104,6 +104,10 @@ export type MediaItem = {
   youtubeId?: string;
   /** Local image path under /public */
   src?: string;
+  /** Local video path under /public — renders a click-to-play native player */
+  videoSrc?: string;
+  /** Poster image for `videoSrc`, under /public */
+  poster?: string;
 };
 
 export const videographyItems: MediaItem[] = [
@@ -151,6 +155,14 @@ export const threeDVideoItems: MediaItem[] = [
     caption: "Cinematic short · 0:19",
     aspect: "video",
     youtubeId: "Jmnl7stJAnI",
+  },
+  {
+    id: "ntice-logo-reveal",
+    title: "NTICE Digital Logo Reveal",
+    caption: "Motion graphics · 1:30",
+    aspect: "reel",
+    videoSrc: "/videos/ntice-logo-reveal.mp4",
+    poster: "/videos/ntice-logo-reveal.jpg",
   },
 ];
 

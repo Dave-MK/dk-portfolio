@@ -17,6 +17,7 @@ const aspectClass: Record<NonNullable<MediaItem["aspect"]>, string> = {
   square: "aspect-square",
   portrait: "aspect-[3/4]",
   landscape: "aspect-[4/3]",
+  reel: "aspect-[9/16]",
 };
 
 const kindIcon = {
@@ -63,6 +64,40 @@ export function MediaCard({ item, kind, accentFrom, accentTo }: Props) {
                 sizes={imageSizes}
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
+              <span className="absolute inset-0 bg-black/25 transition-colors duration-300 group-hover:bg-black/10" />
+              <span className="absolute inset-0 flex items-center justify-center">
+                <span className="inline-flex size-14 items-center justify-center rounded-full border border-white/20 bg-black/40 text-white backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
+                  <Play className="size-6 translate-x-0.5" />
+                </span>
+              </span>
+            </button>
+          )
+        ) : item.videoSrc ? (
+          playing ? (
+            <video
+              className="absolute inset-0 h-full w-full object-cover"
+              src={item.videoSrc}
+              poster={item.poster}
+              autoPlay
+              controls
+              playsInline
+            />
+          ) : (
+            <button
+              type="button"
+              onClick={() => setPlaying(true)}
+              aria-label={`Play ${item.title}`}
+              className="absolute inset-0 cursor-pointer"
+            >
+              {item.poster && (
+                <Image
+                  src={item.poster}
+                  alt={item.title}
+                  fill
+                  sizes={imageSizes}
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              )}
               <span className="absolute inset-0 bg-black/25 transition-colors duration-300 group-hover:bg-black/10" />
               <span className="absolute inset-0 flex items-center justify-center">
                 <span className="inline-flex size-14 items-center justify-center rounded-full border border-white/20 bg-black/40 text-white backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
